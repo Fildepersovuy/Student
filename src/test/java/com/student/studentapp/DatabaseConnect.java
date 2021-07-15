@@ -1,4 +1,4 @@
-package com.Student.Student;
+package com.student.studentapp;
 
 import org.springframework.stereotype.Component;
 
