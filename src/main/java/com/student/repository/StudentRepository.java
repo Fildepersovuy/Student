@@ -20,9 +20,11 @@ public class StudentRepository {
          jdbcTemplate.execute("Select * from info");
     }
     public void findByName(String firstname){
+        jdbcTemplate.execute("select firstname from info");
         this.firstname=firstname;
     }
     public void updateName(int id,String newFirstname){
+        jdbcTemplate.update("update info set firstname = newFirstname where id = ?");
         this.id=id;
         firstname=newFirstname;
     }
