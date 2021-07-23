@@ -17,20 +17,11 @@ public class StudentRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     private String firstname;
-    private String newFirstname;
-    private int id;
 
-    public void findAll1(){
-         jdbcTemplate.execute("select * from info");
-    }
-    public List<StudentEntity> findAll2(){
+    public List<StudentEntity> findAll(){
         return jdbcTemplate.queryForList("select * from info",StudentEntity.class);
     }
-    public void findByName1(String firstname){
-        jdbcTemplate.execute("select firstname from info");
-        this.firstname=firstname;
-    }
-    public List<StudentEntity> findByName2(String firstname){
+    public List<StudentEntity> findByName(){
         String query = String.format("select * from info where firstname = %s",firstname);
         return jdbcTemplate.queryForList(query,StudentEntity.class);
     }
