@@ -8,11 +8,11 @@ public class OurController {
 
     @GetMapping("/hello")
     public String helloPage(){
-        return "our/hello";
+        return "views/hello";
     }
 
     @GetMapping("/goodbye")
     public String goodbyePage(){
-        return "our/goodbye";
+        return "views/goodbye";
     }
 }
