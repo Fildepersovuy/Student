@@ -16,17 +16,17 @@ import java.util.List;
 public class StudentRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
-    private String firstname;
+    //private String firstname;
 
     public List<StudentEntity> findAll(){
         return jdbcTemplate.queryForList("select * from info",StudentEntity.class);
     }
     public List<StudentEntity> findByName(){
-        String query = String.format("select * from info where firstname = %s",firstname);
+        String query = String.format("select * from info where firstname = %s");
         return jdbcTemplate.queryForList(query,StudentEntity.class);
     }
     public void updateName(int id, String newFirstname){
-        jdbcTemplate.update("select info set firstname = ? where id = ?",new Object[]{firstname,id});
+        jdbcTemplate.update("select info set firstname = ? where id = ?",new Object[]{id});
     }
     public List<StudentEntity> newFindByName(String firstname){
         return jdbcTemplate.query("select * from info where firstname = ?",
