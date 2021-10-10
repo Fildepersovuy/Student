@@ -16,12 +16,11 @@ import java.util.List;
 public class StudentRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
-    //private String firstname;
 
     public List<StudentEntity> findAll(){
         return jdbcTemplate.queryForList("select * from info",StudentEntity.class);
     }
-    public List<StudentEntity> findByName(){
+    public List<StudentEntity> findByName(String name){
         String query = String.format("select * from info where firstname = %s");
         return jdbcTemplate.queryForList(query,StudentEntity.class);
     }

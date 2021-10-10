@@ -2,11 +2,14 @@ package com.student.controllers;
 
 
 import com.student.domain.StudentEntity;
+import com.student.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class OurController {
@@ -15,12 +18,7 @@ public class OurController {
 
     //http://localhost:8081/findByName?name=Bob
     @GetMapping("/findByName")
-    public StudentEntity findByName(@RequestParam("name") String name){
-        return studentService findByName(name);
-    }
-    //http://localhost:8081/findByName/Bob
-    @GetMapping("findByName/{name}")
-    public StudentEntity findByName(@PathVariable("name") String name){
+    public List<StudentEntity> findByName(@RequestParam("name") String name){
         return studentService.findByName(name);
     }
 }

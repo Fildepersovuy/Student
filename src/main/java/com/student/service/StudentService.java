@@ -5,6 +5,8 @@ import com.student.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StudentService {
     @Autowired
@@ -14,8 +16,4 @@ public class StudentService {
         return studentRepository.findByName(name);
     }
 
-    public void findAndLogging(String name){
-        List<StudentEntity> entities = studentRepository.findByName(name);
-        System.out.println("Entities= "+entities);
-    }
 }
