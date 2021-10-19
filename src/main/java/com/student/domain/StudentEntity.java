@@ -1,20 +1,41 @@
 package com.student.domain;
 
-public class StudentEntity {
-    private int id;
-    private String first_name;
-    private String last_name;
-    private String email;
-    private String gender;
-    private int date_of_birth;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.xml.crypto.Data;
+import java.util.Date;
 
-    public StudentEntity(int id, String first_name, String last_name, String email, String gender, int date_of_birth) {
+@Entity
+@Table(name = "info")
+public class StudentEntity {
+    @Id
+    @Column(name = "id")
+    private int id;
+    @Column(name = "first_name")
+    private String first_name;
+    @Column(name = "last_name")
+    private String last_name;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "gender")
+    private String gender;
+    @Column(name = "date_of_birth")
+    private Date date_of_birth;
+    private String FIO;
+
+    public StudentEntity(int id, String first_name, String last_name, String email, String gender, Date date_of_birth) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.gender = gender;
         this.date_of_birth = date_of_birth;
+    }
+
+    public StudentEntity() {
+
     }
 
     public int getId() {
@@ -57,11 +78,21 @@ public class StudentEntity {
         this.gender = gender;
     }
 
-    public int getDate_of_birth() {
+    public Date getDate_of_birth() {
         return date_of_birth;
     }
 
-    public void setDate_of_birth(int date_of_birth) {
+    public void setFIO(String FIO) {
+        this.FIO = FIO;
+    }
+
+    public String getFIO() {
+        return FIO;
+    }
+
+    public void setDate_of_birth(Date date_of_birth) {
         this.date_of_birth = date_of_birth;
     }
 }
+
+
