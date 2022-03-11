@@ -38,9 +38,9 @@ public class StudentRepository {
         return jdbcTemplate.query("select * from students where firstname = ?",
                 new BeanPropertyRowMapper<>(StudentEntity.class),firstname);
     }
-    public void addStudentEntity (String first_name, String last_name, String gender, String email, Data date_of_birth, String coutry_of_birth){
+    public void addStudentEntity (String first_name, String last_name, String gender, String email, Data date_of_birth, String country_of_birth){
         String query = "INSERT INTO students (first_name, last_name, gender, email, date_of_birth, country_of_birth) VALUES('"
-                +first_name+"'"+",'"+last_name+"'"+",'"+gender+"'"+",'"+email+"'"+",'"+date_of_birth+"'"+",'"+coutry_of_birth+"');";
+                +first_name+"'"+",'"+last_name+"'"+",'"+gender+"'"+",'"+email+"'"+",'"+date_of_birth+"'"+",'"+country_of_birth+"');";
 
     }
 
