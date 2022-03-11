@@ -8,7 +8,7 @@ import javax.xml.crypto.Data;
 import java.util.Date;
 
 @Entity
-@Table(name = "info")
+@Table(name = "students")
 public class StudentEntity {
     @Id
     @Column(name = "id")
@@ -23,15 +23,18 @@ public class StudentEntity {
     private String gender;
     @Column(name = "date_of_birth")
     private Date date_of_birth;
+    @Column (name = "couyry_of_birth")
+    private String country_of_birth;
     private String FIO;
 
-    public StudentEntity(int id, String first_name, String last_name, String email, String gender, Date date_of_birth) {
+    public StudentEntity(int id, String first_name, String last_name, String email, String gender, Date date_of_birth, String country_of_birth) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.gender = gender;
         this.date_of_birth = date_of_birth;
+        this.country_of_birth = country_of_birth;
     }
 
     public StudentEntity() {
@@ -82,6 +85,14 @@ public class StudentEntity {
         return date_of_birth;
     }
 
+    public void setDate_of_birth(Date date_of_birth) {
+        this.date_of_birth = date_of_birth;
+    }
+
+    public String getCountry_of_birth() { return country_of_birth; }
+
+    public void setCountry_of_birth(String country_of_birth){ this.country_of_birth = country_of_birth;}
+
     public void setFIO(String FIO) {
         this.FIO = FIO;
     }
@@ -90,9 +101,6 @@ public class StudentEntity {
         return FIO;
     }
 
-    public void setDate_of_birth(Date date_of_birth) {
-        this.date_of_birth = date_of_birth;
-    }
 }
 
 

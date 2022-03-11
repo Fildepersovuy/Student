@@ -4,9 +4,7 @@ package com.student.controllers;
 import com.student.domain.StudentEntity;
 import com.student.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -21,6 +19,13 @@ public class OurController {
     public List<StudentEntity> findByName(@RequestParam("name") String name){
         return studentService.findByName(name);
     }
+
+//    @PostMapping("/addStudentEntity")
+//    public StudentEntity newStudentEntity(@RequestBody StudentEntity newStudentEntity){
+//        return studentService.addStudentEntity(newStudentEntity);
+//    }
 }
+
+
 
 
