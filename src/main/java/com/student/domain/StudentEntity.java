@@ -23,7 +23,7 @@ public class StudentEntity {
     private String gender;
     @Column(name = "date_of_birth")
     private Date date_of_birth;
-    @Column (name = "couyry_of_birth")
+    @Column (name = "country_of_birth")
     private String country_of_birth;
     private String FIO;
 

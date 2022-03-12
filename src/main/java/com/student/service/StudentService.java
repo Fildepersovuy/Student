@@ -18,4 +18,7 @@ public class StudentService {
         return studentRepository.findByName(name);
     }
 
+    public void addStudent(StudentEntity student){
+      studentRepository.addStudentEntity(student.getFirst_name(),student.getLast_name(),student.getGender(),student.getEmail(),student.getDate_of_birth(),student.getCountry_of_birth());
+    }
 }

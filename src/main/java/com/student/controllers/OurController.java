@@ -20,10 +20,10 @@ public class OurController {
         return studentService.findByName(name);
     }
 
-//    @PostMapping("/addStudentEntity")
-//    public StudentEntity newStudentEntity(@RequestBody StudentEntity newStudentEntity){
-//        return studentService.addStudentEntity(newStudentEntity);
-//    }
+    @PostMapping("/addStudentEntity")
+    public void newStudentEntity(@RequestBody StudentEntity newStudentEntity){
+         studentService.addStudent(newStudentEntity);
+    }
 }
 
 
