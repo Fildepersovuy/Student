@@ -37,9 +37,7 @@ public class StudentEntity {
         this.country_of_birth = country_of_birth;
     }
 
-    public StudentEntity() {
-
-    }
+    public StudentEntity() {}
 
     public int getId() {
         return id;

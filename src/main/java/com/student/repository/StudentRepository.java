@@ -43,7 +43,6 @@ public class StudentRepository {
         String query = "INSERT INTO students (first_name, last_name, gender, email, date_of_birth, country_of_birth) VALUES('"
                 +first_name+"'"+",'"+last_name+"'"+",'"+gender+"'"+",'"+email+"'"+",'"+date_of_birth+"'"+",'"+country_of_birth+"');";
         jdbcTemplate.execute(query);
-
     }
 
 
