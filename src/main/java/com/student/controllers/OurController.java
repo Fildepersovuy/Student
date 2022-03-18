@@ -5,20 +5,24 @@ import com.student.domain.StudentEntity;
 import com.student.domain.UniversityEntity;
 import com.student.service.StudentService;
 import com.student.service.UniversityService;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 @RestController
 public class OurController {
     @Autowired
     private StudentService studentService;
     private UniversityService universityService;
+    private static final Logger logger = (Logger) LoggerFactory.getLogger(OurController.class);
 
     //http://localhost:8081/findByName?name=Bob
     @GetMapping("/findByName")
     public List<StudentEntity> findByName(@RequestParam("name") String name){
+        logger.info("TEST");
         return studentService.findByName(name);
     }
 
