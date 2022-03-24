@@ -13,7 +13,7 @@ public class UniversityService {
     @Autowired
     private UniversityRepository universityRepository;
 
-    public List<StudentEntity> findByAbbreviation(String abbrev){
+    public List<UniversityEntity> findByAbbreviation(String abbrev){
         return universityRepository.findByAbbreviation(abbrev);
     }
 

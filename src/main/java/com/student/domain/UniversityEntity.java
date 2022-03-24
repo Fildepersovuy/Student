@@ -11,13 +11,13 @@ import java.util.Date;
 @Table(name = "universities")
 public class UniversityEntity {
     @Id
-    @Column(name = "id");
+    @Column(name = "id")
     private int id;
-    @Column(name = "abbreviation");
+    @Column(name = "abbreviation")
     private String abbreviation;
-    @Column(name = "full_title");
+    @Column(name = "full_title")
     private String full_title;
-    @Column(name = "founding_date");
+    @Column(name = "founding_date")
     private Date founding_date;
 
     public UniversityEntity(int id, String abbreviation, String full_title, Date founding_date){
@@ -31,6 +31,7 @@ public class UniversityEntity {
     public void setId(int id){
         this.id = id;
     }
+
     public int getId(){
         return id;
     }
@@ -52,4 +53,5 @@ public class UniversityEntity {
     public Date getFounding_date(){
         return founding_date;
     }
+
 }
