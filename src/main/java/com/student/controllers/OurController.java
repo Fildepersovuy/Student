@@ -51,9 +51,9 @@ public class OurController {
 //    {"abbreviation": "AP", "full_title": "im.Aleksandra Pivoglotova", "founding_date": "2020-03-15",
 //            "abbreviation": "DEM", "full_title": "im.Dmitriya Etilovogo monstra", "founding_date": "2000-12-19"}
     @PostMapping("/addUniversityEntity")
-    public void newUniversityEntity(@RequestBody UniversityEntity newUniversityEntity){
-        logger.info("trying to add entity university = AP");
-        universityService.addUniversityEntity(newUniversityEntity);
+    public void newTwoUniversityEntity(@RequestBody UniversityEntity newUniversityEntity){
+        logger.info("trying to add entity university = AP, DEM");
+        universityService.addTwoUniversityEntity(newUniversityEntity);
     }
 }
 

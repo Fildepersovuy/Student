@@ -1,6 +1,5 @@
 package com.student.repository;
 
-import com.student.domain.StudentEntity;
 import com.student.domain.UniversityEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -19,7 +18,7 @@ public class UniversityRepository {
         String query = "SELECT * FROM universities WHERE universities.abbreviation = "+"'"+abbrev+"'";
         return jdbcTemplate.query(query,new BeanPropertyRowMapper<>(UniversityEntity.class));
     }
-    public void addUniversityEntity (String abbreviation, String full_title, Date founding_date ){
+    public void addTwoUniversityEntity(String abbreviation, String full_title, Date founding_date ){
         String query = "INSERT INTO universities (abbreviation, full_title, founding_date ) VALUES('"
                 +abbreviation+"'"+",'"+full_title+"'"+",'"+founding_date+"')," +
                 "('"+abbreviation+"'"+",'"+full_title+"'"+",'"+founding_date+"');";
