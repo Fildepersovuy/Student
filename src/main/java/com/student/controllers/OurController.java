@@ -3,6 +3,7 @@ package com.student.controllers;
 
 import com.student.domain.StudentEntity;
 import com.student.domain.UniversityEntity;
+import com.student.dto.UniversityDto;
 import com.student.service.StudentService;
 import com.student.service.UniversityService;
 import org.slf4j.Logger;
@@ -24,7 +25,7 @@ public class OurController {
     //http://localhost:8081/findByName?name=Sanya
     @GetMapping("/findByName")
     public List<StudentEntity> findByName(@RequestParam("name") String name){
-        logger.info("trying to get the entity student = Sanya");
+        logger.info("trying to get the entity student = "+name);
         return studentService.findByName(name);
     }
 
@@ -34,26 +35,38 @@ public class OurController {
 //            "email": "se@mail.com", "date_of_birth": "1991-02-30", "country_of_birth": "Russia"}
     @PostMapping("/addStudentEntity")
     public void newStudentEntity(@RequestBody StudentEntity newStudentEntity){
-        logger.info("attempt to add entity student = Sanya");
+        logger.info("attempt to add entity student = "+newStudentEntity.toString());
          studentService.addStudent(newStudentEntity);
     }
 
     //http://localhost:8081/findByAbbreviation?abbrev=VGU
     @GetMapping("/findByAbbreviation")
-    public List<UniversityEntity> findByAbbreviation(@RequestParam("abbrev") String abbrev){
-        logger.info("trying to get the essence of the university = VGU");
+    public List<UniversityDto> findByAbbreviation(@RequestParam("abbrev") String abbrev){
+        // todo: создать класс маппер который преобразует ентити в дто
+        logger.info("trying to get the essence of the university = "+abbrev);
         return universityService.findByAbbreviation(abbrev);
     }
 
 //    POST http://localhost:8081/addUniversityEntity
 //    Content-Type: application/json
 //
-//    {"abbreviation": "AP", "full_title": "im.Aleksandra Pivoglotova", "founding_date": "2020-03-15",
-//            "abbreviation": "DEM", "full_title": "im.Dmitriya Etilovogo monstra", "founding_date": "2000-12-19"}
+//    [
+//  {
+//    "abbreviation": "AP",
+//    "full_title": "im.Aleksandra Pivoglotova",
+//    "founding_date": "2020-03-15"
+//  },
+//  {
+//    "abbreviation": "DEM",
+//    "full_title": "im.Dmitriya Etilovogo monstra",
+//    "founding_date": "2000-12-19"
+//  }
+//]
     @PostMapping("/addUniversityEntity")
-    public void newTwoUniversityEntity(@RequestBody UniversityEntity newUniversityEntity){
-        logger.info("trying to add entity university = AP, DEM");
-        universityService.addTwoUniversityEntity(newUniversityEntity);
+    public void addUniversityEntity(@RequestBody List<UniversityEntity> listUniversityEntity){
+        //todo: получить из листа все поля фуллтайтл и залогировать их
+        logger.info("trying to add entity university = ");
+        universityService.addTwoUniversityEntity(listUniversityEntity);
     }
 }
 
