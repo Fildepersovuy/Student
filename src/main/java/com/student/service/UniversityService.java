@@ -19,8 +19,7 @@ public class UniversityService {
 
     public void addUniversityEntity(List<UniversityEntity> university){
         // todo: написать код который вызывает университирепозиторий для каждого элемента из листа
-        List<UniversityEntity> list = new ArrayList<>();
-        for(UniversityEntity x: list)
+        for(UniversityEntity x: university)
         universityRepository.addUniversityEntity(x.getAbbreviation(), x.getFull_title(), x.getFounding_date());
     }
 
