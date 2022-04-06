@@ -65,8 +65,11 @@ public class OurController {
     @PostMapping("/addUniversityEntity")
     public void addUniversityEntity(@RequestBody List<UniversityEntity> listUniversityEntity){
         //todo: получить из листа все поля фуллтайтл и залогировать их
-        logger.info("trying to add entity university = ");
-        universityService.addTwoUniversityEntity(listUniversityEntity);
+        for(UniversityEntity x: listUniversityEntity){
+            x.getFull_title();
+        logger.info("trying to add entity university = "+x);
+        }
+        universityService.addUniversityEntity(listUniversityEntity);
     }
 }
 

@@ -5,7 +5,7 @@ import com.student.repository.UniversityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,9 +17,11 @@ public class UniversityService {
         return universityRepository.findByAbbreviation(abbrev);
     }
 
-    public void addTwoUniversityEntity(List<UniversityEntity> university){
+    public void addUniversityEntity(List<UniversityEntity> university){
         // todo: написать код который вызывает университирепозиторий для каждого элемента из листа
-        universityRepository.addUniversityEntity(university.getAbbreviation(), university.getFull_title(), university.getFounding_date());
+        List<UniversityEntity> list = new ArrayList<>();
+        for(UniversityEntity x: list)
+        universityRepository.addUniversityEntity(x.getAbbreviation(), x.getFull_title(), x.getFounding_date());
     }
 
 }
