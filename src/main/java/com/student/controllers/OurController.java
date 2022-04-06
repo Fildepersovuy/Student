@@ -3,7 +3,6 @@ package com.student.controllers;
 
 import com.student.domain.StudentEntity;
 import com.student.domain.UniversityEntity;
-import com.student.dto.UniversityDto;
 import com.student.service.StudentService;
 import com.student.service.UniversityService;
 import org.slf4j.Logger;
@@ -41,7 +40,7 @@ public class OurController {
 
     //http://localhost:8081/findByAbbreviation?abbrev=VGU
     @GetMapping("/findByAbbreviation")
-    public List<UniversityDto> findByAbbreviation(@RequestParam("abbrev") String abbrev){
+    public List<UniversityEntity> findByAbbreviation(@RequestParam("abbrev") String abbrev){
         // todo: создать класс маппер который преобразует ентити в дто
         logger.info("trying to get the essence of the university = "+abbrev);
         return universityService.findByAbbreviation(abbrev);
