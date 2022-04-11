@@ -52,5 +52,5 @@ public class UniversityEntity {
     public Date getFounding_date(){
         return founding_date;
     }
-
 }
+// todo: создать поле даты добавления в таблицу

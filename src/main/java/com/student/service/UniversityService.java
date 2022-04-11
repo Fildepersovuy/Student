@@ -1,6 +1,8 @@
 package com.student.service;
 
+import com.student.UniversityMapper.UniversityMapper;
 import com.student.domain.UniversityEntity;
+import com.student.dto.UniversityDto;
 import com.student.repository.UniversityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,14 +15,21 @@ public class UniversityService {
     @Autowired
     private UniversityRepository universityRepository;
 
-    public List<UniversityEntity> findByAbbreviation(String abbrev){
-        return universityRepository.findByAbbreviation(abbrev);
+    public List<UniversityDto> findByAbbreviation(String abbrev){
+        UniversityMapper universityMapper = new UniversityMapper();
+        List<UniversityEntity> list = universityRepository.findByAbbreviation(abbrev);
+        List<UniversityDto> list1 = new ArrayList<>();
+        for(UniversityEntity x: list) {
+            UniversityDto universityDto = universityMapper.mapToDto(x);
+            list1.add(universityDto);
+        }
+        return list1;
+
     }
 
-    public void addUniversityEntity(List<UniversityEntity> university){
+    public void addUniversityEntity(List<UniversityDto> universityDtoList){
         // todo: написать код который вызывает университирепозиторий для каждого элемента из листа
-        for(UniversityEntity x: university)
-        universityRepository.addUniversityEntity(x.getAbbreviation(), x.getFull_title(), x.getFounding_date());
+            universityRepository.addUniversityEntity(universityDtoList);
     }
 
 }

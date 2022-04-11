@@ -24,9 +24,7 @@ public class UniversityDto {
     public void setFull_title(String full_title){
         this.full_title = full_title;
     }
-    public String getFull_title(){
-        return full_title;
-    }
+    public String getFull_title(){return full_title;}
     public void setFounding_date(Date founding_date){
         this.founding_date = founding_date;
     }

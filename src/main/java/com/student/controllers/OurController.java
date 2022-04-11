@@ -3,6 +3,7 @@ package com.student.controllers;
 
 import com.student.domain.StudentEntity;
 import com.student.domain.UniversityEntity;
+import com.student.dto.UniversityDto;
 import com.student.service.StudentService;
 import com.student.service.UniversityService;
 import org.slf4j.Logger;
@@ -10,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -40,7 +42,7 @@ public class OurController {
 
     //http://localhost:8081/findByAbbreviation?abbrev=VGU
     @GetMapping("/findByAbbreviation")
-    public List<UniversityEntity> findByAbbreviation(@RequestParam("abbrev") String abbrev){
+    public List<UniversityDto> findByAbbreviation(@RequestParam("abbrev") String abbrev){
         // todo: создать класс маппер который преобразует ентити в дто
         logger.info("trying to get the essence of the university = "+abbrev);
         return universityService.findByAbbreviation(abbrev);
@@ -62,13 +64,14 @@ public class OurController {
 //  }
 //]
     @PostMapping("/addUniversityEntity")
-    public void addUniversityEntity(@RequestBody List<UniversityEntity> listUniversityEntity){
-        //todo: получить из листа все поля фуллтайтл и залогировать их
-        for(UniversityEntity x: listUniversityEntity){
-            x.getFull_title();
-        logger.info("trying to add entity university = "+x);
+    public void addUniversityEntity(@RequestBody List<UniversityDto> listUniversityDto){
+        //todo: склеить все Full_title и записать в логи одной строкой через запятую
+        List<UniversityDto> list = new ArrayList<>();
+        for(UniversityDto x: listUniversityDto){
+            list.add(x);
         }
-        universityService.addUniversityEntity(listUniversityEntity);
+        logger.info("trying to add entity university = "+list);
+        universityService.addUniversityEntity(listUniversityDto);
     }
 }
 
