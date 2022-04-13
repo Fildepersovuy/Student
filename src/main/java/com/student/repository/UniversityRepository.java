@@ -1,5 +1,6 @@
 package com.student.repository;
 
+import com.student.UniversityMapper.UniversityMapper;
 import com.student.domain.UniversityEntity;
 import com.student.dto.UniversityDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,15 @@ public class UniversityRepository {
     }
     public void addUniversityEntity(List<UniversityDto> universityDtoList){
         //todo: написать цикл чтобы для каждого ДТО создавалась вставка, чтобы все вставки скрепить в одну query и записать в базу
-        String query = "INSERT INTO universities (abbreviation, full_title, founding_date ) VALUES('"
-                +abbreviation+"'"+",'"+full_title+"'"+",'"+founding_date+"')";
-        jdbcTemplate.execute(query);
+        String allQuery = "";
+        UniversityMapper universityMapper = new UniversityMapper();
+        for(UniversityDto x: universityDtoList){
+            UniversityEntity universityEntity = universityMapper.mapToEntity(x);
+            String query = "INSERT INTO universities (abbreviation, full_title, founding_date, creation_date ) VALUES('"
+                    +universityEntity.getAbbreviation()+"','"+universityEntity.getFull_title()+"','"+universityEntity.getFounding_date()+"','"+universityEntity.getCreation_date()+"');\n";
+            allQuery+= query;
+        }
+        jdbcTemplate.execute(allQuery);
+
     }
 }

@@ -44,6 +44,4 @@ public class StudentRepository {
                 +first_name+"'"+",'"+last_name+"'"+",'"+gender+"'"+",'"+email+"'"+",'"+date_of_birth+"'"+",'"+country_of_birth+"');";
         jdbcTemplate.execute(query);
     }
-
-
 }

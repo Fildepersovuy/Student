@@ -3,6 +3,8 @@ package com.student.UniversityMapper;
 import com.student.domain.UniversityEntity;
 import com.student.dto.UniversityDto;
 
+import java.util.Date;
+
 public class UniversityMapper {
 
 
@@ -20,6 +22,7 @@ public class UniversityMapper {
         universityEntity.setAbbreviation(univ.getAbbreviation());
         universityEntity.setFull_title(univ.getFull_title());
         universityEntity.setFounding_date(univ.getFounding_date());
+        universityEntity.setCreation_date(new Date());                     // записываев дату в бд
         return universityEntity;
     }
 

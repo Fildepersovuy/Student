@@ -66,11 +66,11 @@ public class OurController {
     @PostMapping("/addUniversityEntity")
     public void addUniversityEntity(@RequestBody List<UniversityDto> listUniversityDto){
         //todo: склеить все Full_title и записать в логи одной строкой через запятую
-        List<UniversityDto> list = new ArrayList<>();
+        String allFullTitle = "";
         for(UniversityDto x: listUniversityDto){
-            list.add(x);
+            allFullTitle+=x.getFull_title()+" ";
         }
-        logger.info("trying to add entity university = "+list);
+        logger.info("trying to add entity university = "+allFullTitle);
         universityService.addUniversityEntity(listUniversityDto);
     }
 }

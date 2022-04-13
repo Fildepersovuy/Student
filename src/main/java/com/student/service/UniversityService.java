@@ -28,7 +28,6 @@ public class UniversityService {
     }
 
     public void addUniversityEntity(List<UniversityDto> universityDtoList){
-        // todo: написать код который вызывает университирепозиторий для каждого элемента из листа
             universityRepository.addUniversityEntity(universityDtoList);
     }
 

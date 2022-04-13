@@ -1,10 +1,6 @@
 package com.student.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.xml.crypto.Data;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -19,12 +15,15 @@ public class UniversityEntity {
     private String full_title;
     @Column(name = "founding_date")
     private Date founding_date;
+    @Column(name = "creation_date")
+    private Date creation_date;
 
-    public UniversityEntity(int id, String abbreviation, String full_title, Date founding_date){
+    public UniversityEntity(int id, String abbreviation, String full_title, Date founding_date, Date creation_date){
         this.id = id;
         this.abbreviation = abbreviation;
         this.full_title = full_title;
         this.founding_date = founding_date;
+        this.creation_date = creation_date;
     }
     public UniversityEntity(){}
 
@@ -52,5 +51,12 @@ public class UniversityEntity {
     public Date getFounding_date(){
         return founding_date;
     }
+    public void setCreation_date(Date creation_date) {
+        this.creation_date = creation_date;
+    }
+    public Date getCreation_date() {
+        return creation_date;
+    }
+
 }
-// todo: создать поле даты добавления в таблицу
+
