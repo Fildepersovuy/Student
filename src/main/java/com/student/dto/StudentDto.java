@@ -1,34 +1,18 @@
-package com.student.domain;
+package com.student.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.xml.crypto.Data;
 import java.util.Date;
 
-@Entity
-@Table(name = "students")
-public class StudentEntity {
-    @Id
-    @Column(name = "id")
-    private int id;
-    @Column(name = "first_name")
+public class StudentDto {
     private String first_name;
-    @Column(name = "last_name")
     private String last_name;
-    @Column(name = "email")
     private String email;
-    @Column(name = "gender")
     private String gender;
-    @Column(name = "date_of_birth")
     private Date date_of_birth;
-    @Column (name = "country_of_birth")
     private String country_of_birth;
-    private String FIO;
 
-    public StudentEntity(int id, String first_name, String last_name, String email, String gender, Date date_of_birth, String country_of_birth) {
-        this.id = id;
+    public StudentDto(){}
+
+    StudentDto(String first_name, String last_name, String email, String gender, Date date_of_birth, String country_of_birth){
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
@@ -37,13 +21,6 @@ public class StudentEntity {
         this.country_of_birth = country_of_birth;
     }
 
-    public StudentEntity() {}
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
     public String getFirst_name() {
         return first_name;
     }
@@ -74,18 +51,10 @@ public class StudentEntity {
     public void setDate_of_birth(Date date_of_birth) {
         this.date_of_birth = date_of_birth;
     }
-    public String getCountry_of_birth() { return country_of_birth; }
-    public void setCountry_of_birth(String country_of_birth){ this.country_of_birth = country_of_birth;}
-    public void setFIO(String FIO) {
-        this.FIO = FIO;
+    public String getCountry_of_birth() {
+        return country_of_birth;
     }
-    public String getFIO() {
-        return FIO;
+    public void setCountry_of_birth(String country_of_birth) {
+        this.country_of_birth = country_of_birth;
     }
-    public String toString(){
-        return first_name+" "+last_name+" "+email;
-    }
-
 }
-
-

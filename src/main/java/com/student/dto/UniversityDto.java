@@ -14,7 +14,6 @@ public class UniversityDto {
     }
     public UniversityDto(){}
 
-
     public void setAbbreviation(String abbreviation){
         this.abbreviation = abbreviation;
     }

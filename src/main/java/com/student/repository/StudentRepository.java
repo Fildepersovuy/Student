@@ -1,7 +1,9 @@
 package com.student.repository;
 
 
+import com.student.Mapper.StudentMapper;
 import com.student.domain.StudentEntity;
+import com.student.dto.StudentDto;
 import org.apache.tomcat.util.bcel.Const;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -39,9 +41,15 @@ public class StudentRepository {
         return jdbcTemplate.query("select * from students where firstname = ?",
                 new BeanPropertyRowMapper<>(StudentEntity.class),firstname);
     }
-    public void addStudentEntity (String first_name, String last_name, String gender, String email, Date date_of_birth, String country_of_birth){
-        String query = "INSERT INTO students (first_name, last_name, gender, email, date_of_birth, country_of_birth) VALUES('"
-                +first_name+"'"+",'"+last_name+"'"+",'"+gender+"'"+",'"+email+"'"+",'"+date_of_birth+"'"+",'"+country_of_birth+"');";
-        jdbcTemplate.execute(query);
+    public void addStudentEntity (List<StudentDto> studentDtoList){
+        String allQuery = "";
+        StudentMapper studentMapper = new StudentMapper();
+        for (StudentDto x: studentDtoList){
+            StudentEntity studentEntity = studentMapper.mapToEntity(x);
+            String query = "INSERT INTO students (first_name, last_name, gender, email, date_of_birth, country_of_birth) VALUES('"
+                    +studentEntity.getFirst_name()+"','"+studentEntity.getLast_name()+"','"+studentEntity.getEmail()+"','"+studentEntity.getGender()+"','"+studentEntity.getDate_of_birth()+"','"+studentEntity.getCountry_of_birth()+"');\n";
+            allQuery += query;
+        }
+        jdbcTemplate.execute(allQuery);
     }
 }

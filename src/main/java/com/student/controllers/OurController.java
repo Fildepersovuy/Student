@@ -2,7 +2,7 @@ package com.student.controllers;
 
 
 import com.student.domain.StudentEntity;
-import com.student.domain.UniversityEntity;
+import com.student.dto.StudentDto;
 import com.student.dto.UniversityDto;
 import com.student.service.StudentService;
 import com.student.service.UniversityService;
@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -35,9 +34,13 @@ public class OurController {
 //    {"first_name": "Sanya", "last_name": "Esip", "gender": "Male",
 //            "email": "se@mail.com", "date_of_birth": "1991-02-30", "country_of_birth": "Russia"}
     @PostMapping("/addStudentEntity")
-    public void newStudentEntity(@RequestBody StudentEntity newStudentEntity){
-        logger.info("attempt to add entity student = "+newStudentEntity.toString());
-         studentService.addStudent(newStudentEntity);
+    public void newStudentEntity(@RequestBody List<StudentDto> studentDtoList){
+        String allFirstNameAndLastName = "";
+        for (StudentDto x: studentDtoList){
+            allFirstNameAndLastName += x.getFirst_name()+" "+x.getLast_name()+" ";
+        }
+        logger.info("attempt to add entity student = "+allFirstNameAndLastName);
+         studentService.addStudentEntity(studentDtoList);
     }
 
     //http://localhost:8081/findByAbbreviation?abbrev=VGU

@@ -1,4 +1,4 @@
-package com.student.UniversityMapper;
+package com.student.Mapper;
 
 import com.student.domain.UniversityEntity;
 import com.student.dto.UniversityDto;
@@ -9,7 +9,6 @@ public class UniversityMapper {
 
 
     public UniversityDto mapToDto(UniversityEntity univ){
-
         UniversityDto universityDto = new UniversityDto();
         universityDto.setAbbreviation(univ.getAbbreviation());
         universityDto.setFull_title(univ.getFull_title());

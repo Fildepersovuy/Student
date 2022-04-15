@@ -1,6 +1,6 @@
 package com.student.service;
 
-import com.student.UniversityMapper.UniversityMapper;
+import com.student.Mapper.UniversityMapper;
 import com.student.domain.UniversityEntity;
 import com.student.dto.UniversityDto;
 import com.student.repository.UniversityRepository;

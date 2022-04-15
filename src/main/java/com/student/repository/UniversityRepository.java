@@ -1,6 +1,6 @@
 package com.student.repository;
 
-import com.student.UniversityMapper.UniversityMapper;
+import com.student.Mapper.UniversityMapper;
 import com.student.domain.UniversityEntity;
 import com.student.dto.UniversityDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.util.Date;
 import java.util.List;
 
 @Repository
