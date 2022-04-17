@@ -75,13 +75,9 @@ public class OurController {
         universityService.addUniversityEntity(listUniversityDto);
     }
     @PutMapping("/updateStudentEntity")
-    public void updateStudentEntity(@RequestBody List<StudentDto> studentDtoList, @RequestParam("id") int id){
-        String allLastName = "";
-        for (StudentDto x: studentDtoList){
-            allLastName += x.getLast_name()+" ";
-        }
-        logger.info("attempt to update student data = "+allLastName);
-        studentService.updateStudentEntity(studentDtoList, id);
+    public void updateStudentEntity(@RequestBody StudentDto studentDto, @RequestParam("id") int id){
+        logger.info("attempt to update student data = "+studentDto.getLast_name());
+        studentService.updateStudentEntity(studentDto, id);
     }
 }
 
