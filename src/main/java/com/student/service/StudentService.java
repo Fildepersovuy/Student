@@ -20,7 +20,7 @@ public class StudentService {
     public void addStudentEntity(List<StudentDto> studentDtoList){
       studentRepository.addStudentEntity(studentDtoList);
     }
-    public void updateStudentEntity(List<StudentDto> studentDtoList, String firstName, String lastName){
-        studentRepository.updateStudentEntity(studentDtoList, firstName, lastName);
+    public void updateStudentEntity(List<StudentDto> studentDtoList, int id){
+        studentRepository.updateStudentEntity(studentDtoList,id );
     }
 }
