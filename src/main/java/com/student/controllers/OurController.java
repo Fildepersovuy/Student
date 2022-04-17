@@ -42,7 +42,6 @@ public class OurController {
         logger.info("attempt to add entity student = "+allFirstNameAndLastName);
          studentService.addStudentEntity(studentDtoList);
     }
-
     //http://localhost:8081/findByAbbreviation?abbrev=VGU
     @GetMapping("/findByAbbreviation")
     public List<UniversityDto> findByAbbreviation(@RequestParam("abbrev") String abbrev){
@@ -50,7 +49,6 @@ public class OurController {
         logger.info("trying to get the essence of the university = "+abbrev);
         return universityService.findByAbbreviation(abbrev);
     }
-
 //    POST http://localhost:8081/addUniversityEntity
 //    Content-Type: application/json
 //
@@ -75,6 +73,15 @@ public class OurController {
         }
         logger.info("trying to add entity university = "+allFullTitle);
         universityService.addUniversityEntity(listUniversityDto);
+    }
+    @PutMapping("/updateStudentEntity")
+    public void updateStudentEntity(@RequestBody List<StudentDto> studentDtoList, String firstName, String lastName){
+        String allLastName = "";
+        for (StudentDto x: studentDtoList){
+            allLastName += x.getLast_name()+" ";
+        }
+        logger.info("attempt to update student data = "+allLastName);
+        studentService.updateStudentEntity(studentDtoList, firstName, lastName);
     }
 }
 

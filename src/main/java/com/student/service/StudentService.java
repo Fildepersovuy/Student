@@ -17,7 +17,10 @@ public class StudentService {
         return studentRepository.findByName(name);
     }
 
-    public void addStudentEntity(List<StudentDto> studentEntityList){
-      studentRepository.addStudentEntity(studentEntityList);
+    public void addStudentEntity(List<StudentDto> studentDtoList){
+      studentRepository.addStudentEntity(studentDtoList);
+    }
+    public void updateStudentEntity(List<StudentDto> studentDtoList, String firstName, String lastName){
+        studentRepository.updateStudentEntity(studentDtoList, firstName, lastName);
     }
 }

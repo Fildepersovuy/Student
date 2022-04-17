@@ -52,4 +52,15 @@ public class StudentRepository {
         }
         jdbcTemplate.execute(allQuery);
     }
+    public void updateStudentEntity(List<StudentDto> studentDtoList, String firstName, String lastName ) {
+        String allQuery = "";
+        StudentMapper studentMapper = new StudentMapper();
+        for (StudentDto x : studentDtoList) {
+            StudentEntity studentEntity = studentMapper.mapToEntity(x);
+            String query = "UPDATE students SET first_name = " + studentEntity.getFirst_name() + "', 'last_name = " + studentEntity.getLast_name() + "', 'gender = " + studentEntity.getGender() + "', 'email = " + studentEntity.getEmail() + "', 'date_of_birth = " + studentEntity.getDate_of_birth() + "', 'country_of_birth = " + studentEntity.getCountry_of_birth()+" WHERE first_name = "+firstName+" AND last_name = "+lastName;
+            allQuery += query;
+        }
+        jdbcTemplate.execute(allQuery);
+    }
 }
+
