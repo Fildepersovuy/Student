@@ -57,7 +57,7 @@ public class StudentRepository {
         StudentMapper studentMapper = new StudentMapper();
         for (StudentDto x : studentDtoList) {
             StudentEntity studentEntity = studentMapper.mapToEntity(x);
-            String query = "UPDATE students SET first_name = " + studentEntity.getFirst_name() + ", last_name = " + studentEntity.getLast_name() + ", gender = " + studentEntity.getGender() + ", email = " + studentEntity.getEmail() + ", date_of_birth = " + studentEntity.getDate_of_birth() + ", country_of_birth = " + studentEntity.getCountry_of_birth()+" WHERE identity = "+id;
+            String query = "UPDATE students SET first_name = '" + studentEntity.getFirst_name() + "', last_name = '" + studentEntity.getLast_name() + "', gender = '" + studentEntity.getGender() + "', email = '" + studentEntity.getEmail() + "', date_of_birth = '" + studentEntity.getDate_of_birth() + "', country_of_birth = '" + studentEntity.getCountry_of_birth()+"' WHERE id = '"+id+"'";
             allQuery += query;
         }
         jdbcTemplate.execute(allQuery);
