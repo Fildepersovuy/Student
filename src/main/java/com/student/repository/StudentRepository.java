@@ -31,23 +31,22 @@ public class StudentRepository {
     }
 
     public List<StudentEntity> findByName(String name) {
-        String query = "select * from students where students.first_name = "+"'"+name+"'";
+        String query = String.format("select * from students where students.first_name = '%s'\n;",name);
         return jdbcTemplate.query(query,new BeanPropertyRowMapper<>(StudentEntity.class));
     }
     public void updateName(int id, String newFirstname){
         jdbcTemplate.update("select * from students set firstname = ? where id = ?",new Object[]{id});
     }
-    public List<StudentEntity> newFindByName(String firstname){
+    public List<StudentEntity> newFindByName(String firstName){
         return jdbcTemplate.query("select * from students where firstname = ?",
-                new BeanPropertyRowMapper<>(StudentEntity.class),firstname);
+                new BeanPropertyRowMapper<>(StudentEntity.class),firstName);
     }
     public void addStudentEntity (List<StudentDto> studentDtoList){
         String allQuery = "";
         StudentMapper studentMapper = new StudentMapper();
         for (StudentDto x: studentDtoList){
             StudentEntity studentEntity = studentMapper.mapToEntity(x);
-            String query = "INSERT INTO students (first_name, last_name, gender, email, date_of_birth, country_of_birth) VALUES('"
-                    +studentEntity.getFirst_name()+"','"+studentEntity.getLast_name()+"','"+studentEntity.getEmail()+"','"+studentEntity.getGender()+"','"+studentEntity.getDate_of_birth()+"','"+studentEntity.getCountry_of_birth()+"');\n";
+            String query = String.format("INSERT INTO students (first_name, last_name, gender, email, date_of_birth, country_of_birth) VALUES('%s', '%s', '%s', '%s', '%s', '%s');\n",studentEntity.getFirst_name(),studentEntity.getLast_name(),studentEntity.getGender(),studentEntity.getEmail(),studentEntity.getDate_of_birth(),studentEntity.getCountry_of_birth());
             allQuery += query;
         }
         jdbcTemplate.execute(allQuery);
@@ -55,7 +54,8 @@ public class StudentRepository {
     public void updateStudentEntity(StudentDto studentDto, int id ) {
         StudentMapper studentMapper = new StudentMapper();
             StudentEntity studentEntity = studentMapper.mapToEntity(studentDto);
-            String query = "UPDATE students SET first_name = '" + studentEntity.getFirst_name() + "', last_name = '" + studentEntity.getLast_name() + "', gender = '" + studentEntity.getGender() + "', email = '" + studentEntity.getEmail() + "', date_of_birth = '" + studentEntity.getDate_of_birth() + "', country_of_birth = '" + studentEntity.getCountry_of_birth()+"' WHERE id = '"+id+"'";
+            String query = String.format("UPDATE students SET first_name = '%s', last_name = '%s', gender = '%s', email = '%s', date_of_birth = '%s', country_of_birth = '%s' WHERE id = '%s';\n",studentEntity.getFirst_name(),studentEntity.getLast_name(),studentEntity.getGender(),studentEntity.getEmail(),studentEntity.getDate_of_birth(),studentEntity.getCountry_of_birth(),id);
+            //String query = "UPDATE students SET first_name = '" + studentEntity.getFirst_name() + "', last_name = '" + studentEntity.getLast_name() + "', gender = '" + studentEntity.getGender() + "', email = '" + studentEntity.getEmail() + "', date_of_birth = '" + studentEntity.getDate_of_birth() + "', country_of_birth = '" + studentEntity.getCountry_of_birth()+"' WHERE id = '"+id+"'";
         jdbcTemplate.execute(query);
     }
 }
