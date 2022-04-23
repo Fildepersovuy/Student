@@ -1,11 +1,8 @@
 package com.student.controllers;
 
-
 import com.student.domain.StudentEntity;
 import com.student.dto.StudentDto;
-import com.student.dto.UniversityDto;
 import com.student.service.StudentService;
-import com.student.service.UniversityService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
