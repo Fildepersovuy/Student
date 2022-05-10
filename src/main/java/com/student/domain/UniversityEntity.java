@@ -1,5 +1,6 @@
 package com.student.domain;
 
+import javax.annotation.processing.Generated;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -12,50 +13,61 @@ public class UniversityEntity {
     @Column(name = "abbreviation")
     private String abbreviation;
     @Column(name = "full_title")
-    private String full_title;
+    private String fullTitle;
     @Column(name = "founding_date")
-    private Date founding_date;
+    private Date foundingDate;
     @Column(name = "creation_date")
-    private Date creation_date;
+    private Date creationDate;
 
-    public UniversityEntity(int id, String abbreviation, String full_title, Date founding_date, Date creation_date){
+    public UniversityEntity(int id, String abbreviation, String fullTitle, Date foundingDate, Date creationDate) {
         this.id = id;
         this.abbreviation = abbreviation;
-        this.full_title = full_title;
-        this.founding_date = founding_date;
-        this.creation_date = creation_date;
+        this.fullTitle = fullTitle;
+        this.foundingDate = foundingDate;
+        this.creationDate = creationDate;
     }
-    public UniversityEntity(){}
 
-    public void setId(int id){
+    public UniversityEntity() {
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
-    public int getId(){
+
+    public int getId() {
         return id;
     }
-    public void setAbbreviation(String abbreviation){
+
+    public void setAbbreviation(String abbreviation) {
         this.abbreviation = abbreviation;
     }
-    public String getAbbreviation(){
+
+    public String getAbbreviation() {
         return abbreviation;
     }
-    public void setFull_title(String full_title){
-        this.full_title = full_title;
+
+    public void setFullTitle(String full_title) {
+        this.fullTitle = full_title;
     }
-    public String getFull_title(){
-        return full_title;
+
+    public String getFullTitle() {
+        return fullTitle;
     }
-    public void setFounding_date(Date founding_date){
-        this.founding_date = founding_date;
+
+    public void setFoundingDate(Date founding_date) {
+        this.foundingDate = founding_date;
     }
-    public Date getFounding_date(){
-        return founding_date;
+
+    public Date getFoundingDate() {
+        return foundingDate;
     }
-    public void setCreation_date(Date creation_date) {
-        this.creation_date = creation_date;
+
+    public void setCreationDate(Date creation_date) {
+        this.creationDate = creation_date;
     }
-    public Date getCreation_date() {
-        return creation_date;
+
+    public Date getCreationDate() {
+        return creationDate;
     }
 
 }

@@ -4,30 +4,39 @@ import java.util.Date;
 
 public class UniversityDto {
     private String abbreviation;
-    private String full_title;
-    private Date founding_date;
+    private String fullTitle;
+    private Date foundingDate;
 
-    public UniversityDto( String abbreviation, String full_title, Date founding_date){
+    public UniversityDto(String abbreviation, String fullTitle, Date foundingDate) {
         this.abbreviation = abbreviation;
-        this.full_title = full_title;
-        this.founding_date = founding_date;
+        this.fullTitle = fullTitle;
+        this.foundingDate = foundingDate;
     }
-    public UniversityDto(){}
 
-    public void setAbbreviation(String abbreviation){
+    public UniversityDto() {
+    }
+
+    public void setAbbreviation(String abbreviation) {
         this.abbreviation = abbreviation;
     }
-    public String getAbbreviation(){
+
+    public String getAbbreviation() {
         return abbreviation;
     }
-    public void setFull_title(String full_title){
-        this.full_title = full_title;
+
+    public void setFullTitle(String fullTitle) {
+        this.fullTitle = fullTitle;
     }
-    public String getFull_title(){return full_title;}
-    public void setFounding_date(Date founding_date){
-        this.founding_date = founding_date;
+
+    public String getFullTitle() {
+        return fullTitle;
     }
-    public Date getFounding_date(){
-        return founding_date;
+
+    public void setFoundingDate(Date foundingDate) {
+        this.foundingDate = foundingDate;
+    }
+
+    public Date getFoundingDate() {
+        return foundingDate;
     }
 }

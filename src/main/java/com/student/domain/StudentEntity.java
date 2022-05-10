@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.xml.crypto.Data;
 import java.util.Date;
 
 @Entity
@@ -14,76 +13,98 @@ public class StudentEntity {
     @Column(name = "id")
     private int id;
     @Column(name = "first_name")
-    private String first_name;
+    private String firstName;
     @Column(name = "last_name")
-    private String last_name;
+    private String lastName;
     @Column(name = "email")
     private String email;
     @Column(name = "gender")
     private String gender;
     @Column(name = "date_of_birth")
-    private Date date_of_birth;
-    @Column (name = "country_of_birth")
-    private String country_of_birth;
+    private Date dateOfBirth;
+    @Column(name = "country_of_birth")
+    private String countryOfBirth;
     private String FIO;
 
-    public StudentEntity(int id, String first_name, String last_name, String email, String gender, Date date_of_birth, String country_of_birth) {
+    public StudentEntity(int id, String firstName, String lastName, String email, String gender, Date dateOfBirth, String countryOfBirth) {
         this.id = id;
-        this.first_name = first_name;
-        this.last_name = last_name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.gender = gender;
-        this.date_of_birth = date_of_birth;
-        this.country_of_birth = country_of_birth;
+        this.dateOfBirth = dateOfBirth;
+        this.countryOfBirth = countryOfBirth;
     }
 
-    public StudentEntity() {}
+    public StudentEntity() {
+    }
+
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
-    public String getFirst_name() {
-        return first_name;
+
+    public String getFirstName() {
+        return firstName;
     }
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+
+    public void setFirstName(String first_name) {
+        this.firstName = first_name;
     }
-    public String getLast_name() {
-        return last_name;
+
+    public String getLastName() {
+        return lastName;
     }
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+
+    public void setLastName(String last_name) {
+        this.lastName = last_name;
     }
+
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
+
     public String getGender() {
         return gender;
     }
+
     public void setGender(String gender) {
         this.gender = gender;
     }
-    public Date getDate_of_birth() {
-        return date_of_birth;
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
     }
-    public void setDate_of_birth(Date date_of_birth) {
-        this.date_of_birth = date_of_birth;
+
+    public void setDateOfBirth(Date date_of_birth) {
+        this.dateOfBirth = date_of_birth;
     }
-    public String getCountry_of_birth() { return country_of_birth; }
-    public void setCountry_of_birth(String country_of_birth){ this.country_of_birth = country_of_birth;}
+
+    public String getCountryOfBirth() {
+        return countryOfBirth;
+    }
+
+    public void setCountryOfBirth(String country_of_birth) {
+        this.countryOfBirth = country_of_birth;
+    }
+
     public void setFIO(String FIO) {
         this.FIO = FIO;
     }
+
     public String getFIO() {
         return FIO;
     }
-    public String toString(){
-        return first_name+" "+last_name+" "+email;
+
+    public String toString() {
+        return firstName + " " + lastName + " " + email;
     }
 
 }

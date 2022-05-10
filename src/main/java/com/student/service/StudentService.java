@@ -13,14 +13,15 @@ public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
-    public List<StudentEntity> findByName(String name){
+    public List<StudentEntity> findByName(String name) {
         return studentRepository.findByName(name);
     }
 
-    public void addStudentEntity(List<StudentDto> studentDtoList){
-      studentRepository.addStudentEntity(studentDtoList);
+    public void addStudentEntity(List<StudentDto> studentDtoList) {
+        studentRepository.addStudentEntity(studentDtoList);
     }
-    public void updateStudentEntity(StudentDto studentDto, int id){
-        studentRepository.updateStudentEntity(studentDto,id );
+
+    public void updateStudentEntity(StudentDto studentDto, int id) {
+        studentRepository.updateStudentEntity(studentDto, id);
     }
 }

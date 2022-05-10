@@ -15,11 +15,11 @@ public class UniversityService {
     @Autowired
     private UniversityRepository universityRepository;
 
-    public List<UniversityDto> findByAbbreviation(String abbrev){
+    public List<UniversityDto> findByAbbreviation(String abbrev) {
         UniversityMapper universityMapper = new UniversityMapper();
         List<UniversityEntity> list = universityRepository.findByAbbreviation(abbrev);
         List<UniversityDto> list1 = new ArrayList<>();
-        for(UniversityEntity x: list) {
+        for (UniversityEntity x : list) {
             UniversityDto universityDto = universityMapper.mapToDto(x);
             list1.add(universityDto);
         }
@@ -27,8 +27,8 @@ public class UniversityService {
 
     }
 
-    public void addUniversityEntity(List<UniversityDto> universityDtoList){
-            universityRepository.addUniversityEntity(universityDtoList);
+    public void addUniversityEntity(List<UniversityDto> universityDtoList) {
+        universityRepository.addUniversityEntity(universityDtoList);
     }
 
 }

@@ -8,20 +8,20 @@ import java.util.Date;
 public class UniversityMapper {
 
 
-    public UniversityDto mapToDto(UniversityEntity univ){
+    public UniversityDto mapToDto(UniversityEntity univ) {
         UniversityDto universityDto = new UniversityDto();
         universityDto.setAbbreviation(univ.getAbbreviation());
-        universityDto.setFull_title(univ.getFull_title());
-        universityDto.setFounding_date(univ.getFounding_date());
+        universityDto.setFullTitle(univ.getFullTitle());
+        universityDto.setFoundingDate(univ.getFoundingDate());
         return universityDto;
     }
 
-    public UniversityEntity mapToEntity(UniversityDto univ){
+    public UniversityEntity mapToEntity(UniversityDto univ) {
         UniversityEntity universityEntity = new UniversityEntity();
         universityEntity.setAbbreviation(univ.getAbbreviation());
-        universityEntity.setFull_title(univ.getFull_title());
-        universityEntity.setFounding_date(univ.getFounding_date());
-        universityEntity.setCreation_date(new Date());                     // записываев дату в бд
+        universityEntity.setFullTitle(univ.getFullTitle());
+        universityEntity.setFoundingDate(univ.getFoundingDate());
+        universityEntity.setCreationDate(new Date());                     // записываев дату в бд
         return universityEntity;
     }
 
