@@ -7,8 +7,8 @@ import java.util.Date;
 
 public class UniversityMapper {
 
-
-    public UniversityDto mapToDto(UniversityEntity univ) {
+    //todo:применить статик
+    public static UniversityDto mapToDto(UniversityEntity univ) {
         UniversityDto universityDto = new UniversityDto();
         universityDto.setAbbreviation(univ.getAbbreviation());
         universityDto.setFullTitle(univ.getFullTitle());
@@ -16,7 +16,7 @@ public class UniversityMapper {
         return universityDto;
     }
 
-    public UniversityEntity mapToEntity(UniversityDto univ) {
+    public static UniversityEntity mapToEntity(UniversityDto univ) {
         UniversityEntity universityEntity = new UniversityEntity();
         universityEntity.setAbbreviation(univ.getAbbreviation());
         universityEntity.setFullTitle(univ.getFullTitle());

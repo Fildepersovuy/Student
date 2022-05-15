@@ -1,6 +1,8 @@
 package com.student.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +13,8 @@ import java.util.Date;
 @Entity
 @Table(name = "students")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class StudentEntity {
     @Id
     @Column(name = "id")

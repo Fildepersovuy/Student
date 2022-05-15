@@ -29,6 +29,5 @@ public class UniversityRepository {
             allQuery += query;
         }
         jdbcTemplate.execute(allQuery);
-
     }
 }

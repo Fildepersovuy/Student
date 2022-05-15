@@ -9,22 +9,28 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UniversityService {
     @Autowired
     private UniversityRepository universityRepository;
 
+    //    public List<UniversityDto> findByAbbreviation(String abbrev) {
+//        UniversityMapper universityMapper = new UniversityMapper();
+//        List<UniversityEntity> list = universityRepository.findByAbbreviation(abbrev);
+//        List<UniversityDto> list1 = new ArrayList<>();
+//        for (UniversityEntity x : list) {
+//            UniversityDto universityDto = universityMapper.mapToDto(x);
+//            list1.add(universityDto);
+//        }
+//        return list1;
+//    }
     public List<UniversityDto> findByAbbreviation(String abbrev) {
-        UniversityMapper universityMapper = new UniversityMapper();
-        List<UniversityEntity> list = universityRepository.findByAbbreviation(abbrev);
-        List<UniversityDto> list1 = new ArrayList<>();
-        for (UniversityEntity x : list) {
-            UniversityDto universityDto = universityMapper.mapToDto(x);
-            list1.add(universityDto);
-        }
-        return list1;
-
+        return universityRepository.findByAbbreviation(abbrev)
+                .stream()
+                .map(UniversityMapper::mapToDto)
+                .collect(Collectors.toList());
     }
 
     public void addUniversityEntity(List<UniversityDto> universityDtoList) {

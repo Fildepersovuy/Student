@@ -4,7 +4,7 @@ import com.student.domain.StudentEntity;
 import com.student.dto.StudentDto;
 
 public class StudentMapper {
-    public StudentDto mapToDto(StudentEntity studentEntity) {
+    public static StudentDto mapToDto(StudentEntity studentEntity) {
         StudentDto studentDto = new StudentDto();
         studentDto.setFirst_name(studentEntity.getFirstName());
         studentDto.setLast_name(studentEntity.getLastName());
@@ -15,7 +15,7 @@ public class StudentMapper {
         return studentDto;
     }
 
-    public StudentEntity mapToEntity(StudentDto studentDto) {
+    public static StudentEntity mapToEntity(StudentDto studentDto) {
         StudentEntity studentEntity = new StudentEntity();
         studentEntity.setFirstName(studentDto.getFirst_name());
         studentEntity.setLastName(studentDto.getLast_name());

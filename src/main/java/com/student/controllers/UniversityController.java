@@ -19,7 +19,6 @@ public class UniversityController {
 
     @GetMapping
     public List<UniversityDto> findByAbbreviation(@RequestParam("abbrev") String abbrev) {
-        // todo: создать класс маппер который преобразует ентити в дто
         logger.info("trying to get the essence of the university = " + abbrev);
         return universityService.findByAbbreviation(abbrev);
     }
