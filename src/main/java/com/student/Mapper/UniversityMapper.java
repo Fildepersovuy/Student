@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class UniversityMapper {
 
-    //todo:применить статик
+
     public static UniversityDto mapToDto(UniversityEntity univ) {
         UniversityDto universityDto = new UniversityDto();
         universityDto.setAbbreviation(univ.getAbbreviation());
