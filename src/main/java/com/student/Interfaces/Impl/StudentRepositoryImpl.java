@@ -25,13 +25,6 @@ public class StudentRepositoryImpl implements StudentRepository, Serializable {
 
     public List<StudentEntity> findByName(String name) {
         String query = String.format("select * from students where students.first_name = '%s'\n;", name);
-        try {
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("writingStudent"));
-            oos.writeObject(query);
-            oos.close();
-        } catch (IOException e) {
-            System.out.println("неверное имя файла "+e);
-        }
         return jdbcTemplate.query(query, new BeanPropertyRowMapper<>(StudentEntity.class));
     }
 
