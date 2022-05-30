@@ -1,5 +1,6 @@
-package com.student.repository;
+package com.student.Interfaces.Impl;
 
+import com.student.Interfaces.UniversityRepository;
 import com.student.Mapper.UniversityMapper;
 import com.student.domain.UniversityEntity;
 import com.student.dto.UniversityDto;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class UniversityRepository {
+public class UniversityRepositoryImpl implements UniversityRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 

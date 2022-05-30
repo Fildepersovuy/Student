@@ -1,8 +1,7 @@
 package com.student.controllers;
 
-import com.student.domain.StudentEntity;
 import com.student.dto.StudentDto;
-import com.student.service.StudentService;
+import com.student.Interfaces.Impl.StudentServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/student")
 public class StudentController {
     @Autowired
-    private StudentService studentService;
+    private StudentServiceImpl studentService;
     private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
     @GetMapping
     public List<StudentDto> findByName(@RequestParam("name") String name) {

@@ -1,20 +1,19 @@
-package com.student.service;
+package com.student.Interfaces.Impl;
 
+import com.student.Interfaces.UniversityService;
 import com.student.Mapper.UniversityMapper;
-import com.student.domain.UniversityEntity;
 import com.student.dto.UniversityDto;
-import com.student.repository.UniversityRepository;
+import com.student.Interfaces.Impl.UniversityRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class UniversityService {
+public class UniversityServiceImpl implements UniversityService {
     @Autowired
-    private UniversityRepository universityRepository;
+    private UniversityRepositoryImpl universityRepository;
 
     //    public List<UniversityDto> findByAbbreviation(String abbrev) {
 //        UniversityMapper universityMapper = new UniversityMapper();

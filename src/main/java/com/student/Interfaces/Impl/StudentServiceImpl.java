@@ -1,9 +1,9 @@
-package com.student.service;
+package com.student.Interfaces.Impl;
 
+import com.student.Interfaces.StudentService;
 import com.student.Mapper.StudentMapper;
-import com.student.domain.StudentEntity;
 import com.student.dto.StudentDto;
-import com.student.repository.StudentRepository;
+import com.student.Interfaces.Impl.StudentRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class StudentService {
+public class StudentServiceImpl implements StudentService {
     @Autowired
-    private StudentRepository studentRepository;
+    private StudentRepositoryImpl studentRepository;
 
     public List<StudentDto> findByName(String name) {
         return studentRepository.findByName(name)

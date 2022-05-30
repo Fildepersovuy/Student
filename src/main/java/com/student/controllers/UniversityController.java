@@ -1,7 +1,7 @@
 package com.student.controllers;
 
 import com.student.dto.UniversityDto;
-import com.student.service.UniversityService;
+import com.student.Interfaces.Impl.UniversityServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/university")
 public class UniversityController {
     @Autowired
-    private UniversityService universityService;
+    private UniversityServiceImpl universityService;
     private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
 
     @GetMapping
