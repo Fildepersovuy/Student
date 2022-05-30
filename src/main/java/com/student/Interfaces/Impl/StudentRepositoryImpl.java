@@ -10,10 +10,11 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.io.*;
 import java.util.List;
 
 @Repository
-public class StudentRepositoryImpl implements StudentRepository {
+public class StudentRepositoryImpl implements StudentRepository, Serializable {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -24,6 +25,13 @@ public class StudentRepositoryImpl implements StudentRepository {
 
     public List<StudentEntity> findByName(String name) {
         String query = String.format("select * from students where students.first_name = '%s'\n;", name);
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("writingStudent"));
+            oos.writeObject(query);
+            oos.close();
+        } catch (IOException e) {
+            System.out.println("неверное имя файла "+e);
+        }
         return jdbcTemplate.query(query, new BeanPropertyRowMapper<>(StudentEntity.class));
     }
 
