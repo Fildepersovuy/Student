@@ -17,9 +17,9 @@ public class StudentController {
     private StudentServiceImpl studentService;
     private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
     @GetMapping
-    public List<StudentDto> findByName(@RequestParam("name") String name) {
+    public List<StudentDto> findByName(@RequestParam("name") String name,@RequestParam(value = "param", required = false) String param) {
         logger.info("trying to get the entity student = " + name);
-        return studentService.findByName(name);
+        return studentService.findByName(name,param);
     }
 
 //    @PostMapping
