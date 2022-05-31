@@ -1,4 +1,4 @@
-package com.student.Interfaces;
+package com.student.repository;
 
 import com.student.domain.UniversityEntity;
 import com.student.dto.UniversityDto;

@@ -1,7 +1,7 @@
 package com.student.studentapp;
 
-import com.student.Mapper.StudentMapper;
-import com.student.Mapper.UniversityMapper;
+import com.student.mapper.StudentMapper;
+import com.student.mapper.UniversityMapper;
 import com.student.domain.StudentEntity;
 import com.student.domain.UniversityEntity;
 import com.student.dto.StudentDto;

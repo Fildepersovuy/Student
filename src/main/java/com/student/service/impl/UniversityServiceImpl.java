@@ -1,9 +1,9 @@
-package com.student.Interfaces.Impl;
+package com.student.service.impl;
 
-import com.student.Interfaces.UniversityService;
-import com.student.Mapper.UniversityMapper;
+import com.student.service.UniversityService;
+import com.student.mapper.UniversityMapper;
 import com.student.dto.UniversityDto;
-import com.student.Interfaces.Impl.UniversityRepositoryImpl;
+import com.student.repository.impl.UniversityRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

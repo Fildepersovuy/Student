@@ -1,9 +1,9 @@
-package com.student.Interfaces.Impl;
+package com.student.repository.impl;
 
-import com.student.Interfaces.UniversityRepository;
-import com.student.Mapper.UniversityMapper;
+import com.student.mapper.UniversityMapper;
 import com.student.domain.UniversityEntity;
 import com.student.dto.UniversityDto;
+import com.student.repository.UniversityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

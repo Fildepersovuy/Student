@@ -1,4 +1,4 @@
-package com.student.Mapper;
+package com.student.mapper;
 
 import com.student.domain.StudentEntity;
 import org.springframework.jdbc.core.RowMapper;

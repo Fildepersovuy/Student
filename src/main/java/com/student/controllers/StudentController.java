@@ -1,12 +1,13 @@
 package com.student.controllers;
 
 import com.student.dto.StudentDto;
-import com.student.Interfaces.Impl.StudentServiceImpl;
+import com.student.service.impl.StudentServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,9 +18,10 @@ public class StudentController {
     private StudentServiceImpl studentService;
     private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
     @GetMapping
-    public List<StudentDto> findByName(@RequestParam("name") String name,@RequestParam(value = "param", required = false) String param) {
+    public List<StudentDto> findByName(@RequestParam("name") String name,
+                                       @RequestParam(value = "saveInFile", required = false) boolean saveInFile) throws IOException {
         logger.info("trying to get the entity student = " + name);
-        return studentService.findByName(name,param);
+        return studentService.findByName(name,saveInFile);
     }
 
 //    @PostMapping

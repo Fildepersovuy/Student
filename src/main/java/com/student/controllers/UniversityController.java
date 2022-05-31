@@ -1,7 +1,7 @@
 package com.student.controllers;
 
 import com.student.dto.UniversityDto;
-import com.student.Interfaces.Impl.UniversityServiceImpl;
+import com.student.service.impl.UniversityServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

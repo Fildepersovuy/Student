@@ -1,4 +1,4 @@
-package com.student.Interfaces;
+package com.student.service;
 
 import com.student.dto.UniversityDto;
 

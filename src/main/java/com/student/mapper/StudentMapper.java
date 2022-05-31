@@ -1,4 +1,4 @@
-package com.student.Mapper;
+package com.student.mapper;
 
 import com.student.domain.StudentEntity;
 import com.student.dto.StudentDto;
