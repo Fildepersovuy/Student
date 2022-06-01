@@ -8,4 +8,6 @@ import java.util.List;
 public interface FileWriterService {
 
     void write(List<StudentDto> list) throws IOException;
+
+    void readableRecord(List<StudentDto> list);
 }

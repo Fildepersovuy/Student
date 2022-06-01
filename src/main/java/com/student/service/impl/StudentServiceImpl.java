@@ -20,13 +20,15 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     private FileWriterService writeService;
 
-    public List<StudentDto> findByName(String name, boolean saveInFile) throws IOException {
+    public List<StudentDto> findByName(String name, boolean saveInFile, boolean saveInFileReadable) throws IOException {
         List<StudentDto> allName = studentRepository.findByName(name)
                 .stream()
                 .map(StudentMapper::mapToDto)
                 .collect(Collectors.toList());
         if (saveInFile) {
             writeService.write(allName);
+        } if(saveInFileReadable){
+            writeService.readableRecord(allName);
         }
         return allName;
     }

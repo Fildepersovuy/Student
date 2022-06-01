@@ -19,9 +19,10 @@ public class StudentController {
     private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
     @GetMapping
     public List<StudentDto> findByName(@RequestParam("name") String name,
-                                       @RequestParam(value = "saveInFile", required = false) boolean saveInFile) throws IOException {
+                                       @RequestParam(value = "saveInFile", required = false) boolean saveInFile,
+                                       @RequestParam(value = "saveInFileReadable", required = false) boolean saveInFileReadable) throws IOException {
         logger.info("trying to get the entity student = " + name);
-        return studentService.findByName(name,saveInFile);
+        return studentService.findByName(name,saveInFile, saveInFileReadable);
     }
 
 //    @PostMapping

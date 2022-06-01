@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface StudentService {
 
-    List<StudentDto> findByName(String name, boolean saveInFile) throws IOException;
+    List<StudentDto> findByName(String name, boolean saveInFile, boolean saveInFileReadable) throws IOException;
 
     void addStudentEntity(List<StudentDto> studentDtoList);
 
