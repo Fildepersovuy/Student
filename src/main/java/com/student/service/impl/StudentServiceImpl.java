@@ -27,7 +27,8 @@ public class StudentServiceImpl implements StudentService {
                 .collect(Collectors.toList());
         if (saveInFile) {
             writeService.write(allName);
-        } if(saveInFileReadable){
+        }
+        if (saveInFileReadable) {
             writeService.readableRecord(allName);
         }
         return allName;
