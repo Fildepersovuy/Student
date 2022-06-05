@@ -2,7 +2,9 @@ package com.student.studentapp;
 
 import com.student.dto.StudentDto;
 import com.student.repository.StudentRepository;
+import com.student.repository.impl.StudentRepositoryImpl;
 import com.student.service.FileWriterService;
+import com.student.service.impl.FileWriterServiceImpl;
 import com.student.service.impl.StudentServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,10 +25,10 @@ import static org.mockito.Mockito.verify;
 public class StudentServiceImplTest {
 
     @Mock
-    private StudentRepository studentRepository;
+    private StudentRepositoryImpl studentRepository;
 
     @Mock
-    private FileWriterService fileWriterService;
+    private FileWriterServiceImpl fileWriterService;
 
     @InjectMocks
     private StudentServiceImpl studentService;
