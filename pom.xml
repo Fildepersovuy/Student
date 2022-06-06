@@ -105,6 +105,12 @@
 		</dependency>
 		<!-- на момент написания версия была 1.10.10 -->
 
+		<dependency>
+			<groupId>net.bytebuddy</groupId>
+			<artifactId>byte-buddy</artifactId>
+			<version>1.12.10</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
