@@ -15,10 +15,15 @@ import java.util.stream.Collectors;
 
 @Service
 public class StudentServiceImpl implements StudentService {
-    @Autowired
-    private StudentRepository studentRepository;
-    @Autowired
-    private FileWriterService writeService;
+    private final StudentRepository studentRepository;
+
+    private final FileWriterService writeService;
+
+    public StudentServiceImpl(StudentRepository studentRepository, FileWriterService writeService) {
+        this.studentRepository = studentRepository;
+        this.writeService = writeService;
+    }
+
 
     public List<StudentDto> findByName(String name, boolean saveInFile, boolean saveInFileReadable) throws IOException {
         List<StudentDto> allName = studentRepository.findByName(name)
