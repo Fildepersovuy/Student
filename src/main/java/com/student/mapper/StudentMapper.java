@@ -6,23 +6,23 @@ import com.student.dto.StudentDto;
 public class StudentMapper {
     public static StudentDto mapToDto(StudentEntity studentEntity) {
         StudentDto studentDto = new StudentDto();
-        studentDto.setFirst_name(studentEntity.getFirstName());
-        studentDto.setLast_name(studentEntity.getLastName());
+        studentDto.setFirstName(studentEntity.getFirstName());
+        studentDto.setLastName(studentEntity.getLastName());
         studentDto.setEmail(studentEntity.getEmail());
         studentDto.setGender(studentEntity.getGender());
-        studentDto.setDate_of_birth(studentEntity.getDateOfBirth());
-        studentDto.setCountry_of_birth(studentEntity.getCountryOfBirth());
+        studentDto.setDateOfBirth(studentEntity.getDateOfBirth());
+        studentDto.setCountryOfBirth(studentEntity.getCountryOfBirth());
         return studentDto;
     }
 
     public static StudentEntity mapToEntity(StudentDto studentDto) {
         StudentEntity studentEntity = new StudentEntity();
-        studentEntity.setFirstName(studentDto.getFirst_name());
-        studentEntity.setLastName(studentDto.getLast_name());
+        studentEntity.setFirstName(studentDto.getFirstName());
+        studentEntity.setLastName(studentDto.getLastName());
         studentEntity.setEmail(studentDto.getEmail());
         studentEntity.setGender(studentDto.getGender());
-        studentEntity.setDateOfBirth(studentDto.getDate_of_birth());
-        studentEntity.setCountryOfBirth(studentDto.getCountry_of_birth());
+        studentEntity.setDateOfBirth(studentDto.getDateOfBirth());
+        studentEntity.setCountryOfBirth(studentDto.getCountryOfBirth());
         return studentEntity;
     }
 }

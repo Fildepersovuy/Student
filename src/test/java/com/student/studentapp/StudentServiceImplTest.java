@@ -2,28 +2,20 @@ package com.student.studentapp;
 
 import com.student.domain.StudentEntity;
 import com.student.dto.StudentDto;
-import com.student.repository.StudentRepository;
 import com.student.repository.impl.StudentRepositoryImpl;
-import com.student.service.FileWriterService;
 import com.student.service.impl.FileWriterServiceImpl;
 import com.student.service.impl.StudentServiceImpl;
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 

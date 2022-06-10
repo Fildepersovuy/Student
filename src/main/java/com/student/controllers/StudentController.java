@@ -5,12 +5,14 @@ import com.student.service.impl.StudentServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Validated
 @RestController
 @RequestMapping("/student")
 public class StudentController {
@@ -36,13 +38,13 @@ public class StudentController {
 //        studentService.addStudentEntity(studentDtoList);
 //    }
     @PostMapping
-    public void newStudentEntity(@RequestBody List<StudentDto> studentDtoList) {
+    public void newStudentEntity(@RequestBody @Valid List<StudentDto> studentDtoList) {
         String studDto =  studentDtoList
                 .stream()
                 .map(studentDto ->
-                        new StringBuilder(studentDto.getFirst_name())
+                        new StringBuilder(studentDto.getFirstName())
                         .append(" ")
-                        .append(studentDto.getLast_name())
+                        .append(studentDto.getLastName())
                 )
                 .collect(Collectors.joining(","));
         logger.info("attempt to add entity student = " + studDto);
@@ -50,7 +52,7 @@ public class StudentController {
     }
     @PutMapping
     public void updateStudentEntity(@RequestBody StudentDto studentDto, @RequestParam("id") int id) {
-        logger.info("attempt to update student data = " + studentDto.getLast_name());
+        logger.info("attempt to update student data = " + studentDto.getLastName());
         studentService.updateStudentEntity(studentDto, id);
     }
 }

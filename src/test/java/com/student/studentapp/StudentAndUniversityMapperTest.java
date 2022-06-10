@@ -30,24 +30,24 @@ public class StudentAndUniversityMapperTest {
 
         StudentDto studentDto = StudentMapper.mapToDto(studentEntity);                      // вызываем код который хотим проверить
 
-        assertEquals("Sanya", studentDto.getFirst_name());                          // то что получили проверяем
-        assertEquals("Esip", studentDto.getLast_name());
+        assertEquals("Sanya", studentDto.getFirstName());                          // то что получили проверяем
+        assertEquals("Esip", studentDto.getLastName());
         assertEquals("se@gmail.ru", studentDto.getEmail());
         assertEquals("male", studentDto.getGender());
-        assertEquals("Fri May 05 00:00:00 MSD 1995", studentDto.getDate_of_birth().toString());
-        assertEquals("Russia", studentDto.getCountry_of_birth());
+        assertEquals("Fri May 05 00:00:00 MSD 1995", studentDto.getDateOfBirth().toString());
+        assertEquals("Russia", studentDto.getCountryOfBirth());
     }
 
     @Test
     void studentMapToEntityTest() throws ParseException {
         StudentDto studentDto = new StudentDto();
         Date date = new SimpleDateFormat("yyyy-MM-dd").parse("1995-05-05");
-        studentDto.setFirst_name("Sanya");
-        studentDto.setLast_name("Esip");
+        studentDto.setFirstName("Sanya");
+        studentDto.setLastName("Esip");
         studentDto.setEmail("se@gmail.ru");
         studentDto.setGender("male");
-        studentDto.setDate_of_birth(date);
-        studentDto.setCountry_of_birth("Russia");
+        studentDto.setDateOfBirth(date);
+        studentDto.setCountryOfBirth("Russia");
 
         StudentEntity studentEntity = StudentMapper.mapToEntity(studentDto);
 

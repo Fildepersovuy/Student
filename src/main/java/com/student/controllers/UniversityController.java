@@ -5,11 +5,13 @@ import com.student.service.impl.UniversityServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
-
+@Validated
 @RestController
 @RequestMapping("/university")
 public class UniversityController {
@@ -24,7 +26,7 @@ public class UniversityController {
     }
 
     @PostMapping
-    public void addUniversityEntity(@RequestBody List<UniversityDto> listUniversityDto) {
+    public void addUniversityEntity(@RequestBody @Valid List<UniversityDto> listUniversityDto) {
         StringBuilder stringBuilder = new StringBuilder();
         for (UniversityDto x : listUniversityDto) {
             stringBuilder.append(x);
