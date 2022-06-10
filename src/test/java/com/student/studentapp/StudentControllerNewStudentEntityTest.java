@@ -53,7 +53,7 @@ public class StudentControllerNewStudentEntityTest {
     List<StudentDto> studentDtoList = new ArrayList<>();
     studentController.newStudentEntity(studentDtoList);
 
-//    Set<ConstraintViolation<StudentController>> violations = validator.validate(studentController);
+//  Set<ConstraintViolation<StudentController>> violations = validator.validate(studentController);
 
     assertFalse(validator.validate(studentController).isEmpty());
     }
