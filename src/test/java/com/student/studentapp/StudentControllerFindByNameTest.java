@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.student.controllers.StudentController;
 import com.student.dto.StudentDto;
 import com.student.service.impl.StudentServiceImpl;
-
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -15,54 +14,54 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static org.mockito.Mockito.verify;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.mockito.BDDMockito.given;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(StudentController.class)
-class StudentControllerNewStudentEntityTest {
+public class StudentControllerFindByNameTest {
 
     @Autowired
     private MockMvc mvc;
     @MockBean
     private StudentServiceImpl service;
+
     private ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
-    void newStudentEntity() throws Exception {
-        StudentDto studentDto = new StudentDto();
+    void updateStudentEntity() throws Exception {
+
+        given(service.findByName("Sanya", false, true))
+                .willReturn(getStudentDto());
 
         String contentAsString = mvc.perform(
-                        post("/student")
+                        get("/student?name=Sanya&saveInFileReadable=true")
                                 .contentType(MediaType.APPLICATION_JSON)
-                                .content(objectMapper.writeValueAsString(getStudentDto()))
                 )
                 .andExpect(status().is2xxSuccessful())
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
 
-        Assertions.assertEquals("", contentAsString);
-        verify(service).addStudentEntity(getStudentDto());
+        Assertions.assertEquals("[{\"firstName\":\"Sanya\",\"lastName\":\"Esip\",\"email\":\"se@mail.ru\",\"gender\":\"Male\",\"dateOfBirth\":\"1991-03-01T21:00:00.000+00:00\",\"countryOfBirth\":\"Russia\"}]",
+                contentAsString);
     }
 
     @SneakyThrows
     private List<StudentDto> getStudentDto() {
         StudentDto studentDto = new StudentDto();
-        Date date = new SimpleDateFormat("yyyy-MM-dd").parse("1995-05-05");
+        Date date = new SimpleDateFormat("yyyy-MM-dd").parse("1991-03-02");
         studentDto.setFirstName("Sanya");
         studentDto.setLastName("Esip");
-        studentDto.setEmail("se@gmail.ru");
-        studentDto.setGender("male");
+        studentDto.setEmail("se@mail.ru");
+        studentDto.setGender("Male");
         studentDto.setDateOfBirth(date);
         studentDto.setCountryOfBirth("Russia");
 
-        List<StudentDto> studentDtoList = new ArrayList<>();
-        studentDtoList.add(studentDto); // List.of(studentDto)
-        return studentDtoList;
+        return List.of(studentDto);
     }
+
 }

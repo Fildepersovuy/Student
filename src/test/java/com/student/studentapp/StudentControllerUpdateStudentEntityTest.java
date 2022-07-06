@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.student.controllers.StudentController;
 import com.student.dto.StudentDto;
 import com.student.service.impl.StudentServiceImpl;
-
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -15,17 +14,14 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import static org.mockito.Mockito.verify;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(StudentController.class)
-class StudentControllerNewStudentEntityTest {
-
+public class StudentControllerUpdateStudentEntityTest {
     @Autowired
     private MockMvc mvc;
     @MockBean
@@ -33,11 +29,10 @@ class StudentControllerNewStudentEntityTest {
     private ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
-    void newStudentEntity() throws Exception {
-        StudentDto studentDto = new StudentDto();
+    void updateStudentEntity() throws Exception {
 
         String contentAsString = mvc.perform(
-                        post("/student")
+                        put("/student?id=1")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(getStudentDto()))
                 )
@@ -47,22 +42,20 @@ class StudentControllerNewStudentEntityTest {
                 .getContentAsString();
 
         Assertions.assertEquals("", contentAsString);
-        verify(service).addStudentEntity(getStudentDto());
+        verify(service).updateStudentEntity(getStudentDto(),1);
     }
 
     @SneakyThrows
-    private List<StudentDto> getStudentDto() {
+    private StudentDto getStudentDto() {
         StudentDto studentDto = new StudentDto();
-        Date date = new SimpleDateFormat("yyyy-MM-dd").parse("1995-05-05");
+        Date date = new SimpleDateFormat("yyyy-MM-dd").parse("1991-03-02");
         studentDto.setFirstName("Sanya");
         studentDto.setLastName("Esip");
-        studentDto.setEmail("se@gmail.ru");
-        studentDto.setGender("male");
+        studentDto.setEmail("se@mail.ru");
+        studentDto.setGender("Male");
         studentDto.setDateOfBirth(date);
         studentDto.setCountryOfBirth("Russia");
 
-        List<StudentDto> studentDtoList = new ArrayList<>();
-        studentDtoList.add(studentDto); // List.of(studentDto)
-        return studentDtoList;
+        return studentDto;
     }
 }
