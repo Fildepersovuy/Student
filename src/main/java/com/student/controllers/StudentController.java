@@ -38,7 +38,7 @@ public class StudentController {
 //        studentService.addStudentEntity(studentDtoList);
 //    }
     @PostMapping
-    public void newStudentEntity(@RequestBody @Valid List<StudentDto> studentDtoList) {
+    public void newStudentEntity(@RequestBody List<@Valid StudentDto> studentDtoList) {
         String studDto =  studentDtoList
                 .stream()
                 .map(studentDto ->
@@ -51,7 +51,7 @@ public class StudentController {
         studentService.addStudentEntity(studentDtoList);
     }
     @PutMapping
-    public void updateStudentEntity(@RequestBody StudentDto studentDto, @RequestParam("id") int id) {
+    public void updateStudentEntity(@RequestBody @Valid StudentDto studentDto, @RequestParam("id") int id) {
         logger.info("attempt to update student data = " + studentDto.getLastName());
         studentService.updateStudentEntity(studentDto, id);
     }

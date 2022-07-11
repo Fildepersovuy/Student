@@ -4,17 +4,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class StudentDto implements Serializable {
+    @NotEmpty
     @Size(min = 1, max = 50, message = "firstName should be between 1 and 50 characters")
     private String firstName;
+    @NotBlank
     @Size(min = 1, max = 50, message = "lastName should be between 1 and 50 characters")
     private String lastName;
     @Email(message = "Email should be valid")

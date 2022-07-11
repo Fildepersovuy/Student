@@ -34,7 +34,6 @@ class StudentControllerNewStudentEntityTest {
 
     @Test
     void newStudentEntity() throws Exception {
-        StudentDto studentDto = new StudentDto();
 
         String contentAsString = mvc.perform(
                         post("/student")
