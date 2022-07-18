@@ -1,13 +1,11 @@
 package com.student.studentapp;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.student.controllers.StudentController;
 import com.student.dto.StudentDto;
 import com.student.service.impl.StudentServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -17,11 +15,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -54,16 +49,11 @@ public class StudentControllerValidTest {
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(list))
                 )
-                .andExpect(status().is5xxServerError())
+                .andExpect(status().isBadRequest())
                 .andReturn()
                 .getResponse()
                 .getContentAsString();
-        String response = "{\n" +
-                "  \"timestamp\": \"2022-07-09T11:18:51.800+00:00\",\n" +
-                "  \"status\": 500,\n" +
-                "  \"error\": \"Internal Server Error\",\n" +
-                "  \"path\": \"/student\"\n" +
-                "}";
+        String response = "{\"message\":\"newStudentEntity.studentDtoList[0].firstName: must not be empty, newStudentEntity.studentDtoList[0].firstName: firstName should be between 1 and 50 characters\",\"code\":\"BAD_REQUEST\"}";
         assertEquals(response,contentAsString);
     }
 }
