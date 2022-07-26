@@ -2,6 +2,7 @@ package com.student.studentapp;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.student.controllers.StudentController;
 import com.student.dto.StudentDto;
 import com.student.service.impl.StudentServiceImpl;
 import org.junit.jupiter.api.Test;
@@ -10,6 +11,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -55,7 +57,7 @@ public class ParameterizedStudentControllerValidTest {
     }
 
     private static Stream<Arguments> getParams() throws ParseException {
-       return Stream.of(invalidFirstName());
+       return Stream.of(invalidFirstName(),invalidLastName(),invalidEmail());
     }
 
     private static Arguments invalidFirstName() throws ParseException {
@@ -71,6 +73,46 @@ public class ParameterizedStudentControllerValidTest {
         studentDto.setCountryOfBirth("Russia");
 
         String response = "{\"message\":\"newStudentEntity.studentDtoList[0].firstName: must not be empty, newStudentEntity.studentDtoList[0].firstName: firstName should be between 1 and 50 characters\",\"code\":\"BAD_REQUEST\"}";
+
+        List<StudentDto> list = new ArrayList<>();
+        list.add(studentDto);
+
+        return Arguments.of(list,response);
+    }
+
+    private static Arguments invalidLastName() throws ParseException {
+
+        StudentDto studentDto = new StudentDto();
+
+        Date date = new SimpleDateFormat("yyyy-MM-dd").parse("1991-03-02");
+        studentDto.setFirstName("Sanya");
+        studentDto.setLastName("");
+        studentDto.setEmail("se@mail.ru");
+        studentDto.setGender("Male");
+        studentDto.setDateOfBirth(date);
+        studentDto.setCountryOfBirth("Russia");
+
+        String response = "{\"message\":\"newStudentEntity.studentDtoList[0].lastName: must not be blank, newStudentEntity.studentDtoList[0].lastName: lastName should be between 1 and 50 characters\",\"code\":\"BAD_REQUEST\"}";
+
+        List<StudentDto> list = new ArrayList<>();
+        list.add(studentDto);
+
+        return Arguments.of(list,response);
+    }
+
+    private static Arguments invalidEmail() throws ParseException {
+
+        StudentDto studentDto = new StudentDto();
+
+        Date date = new SimpleDateFormat("yyyy-MM-dd").parse("1991-03-02");
+        studentDto.setFirstName("Sanya");
+        studentDto.setLastName("Esip");
+        studentDto.setEmail("semail.ru");
+        studentDto.setGender("Male");
+        studentDto.setDateOfBirth(date);
+        studentDto.setCountryOfBirth("Russia");
+
+        String response = "{\"message\":\"newStudentEntity.studentDtoList[0].email: Email should be valid\",\"code\":\"BAD_REQUEST\"}";
 
         List<StudentDto> list = new ArrayList<>();
         list.add(studentDto);
