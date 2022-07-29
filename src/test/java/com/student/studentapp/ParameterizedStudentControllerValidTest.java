@@ -28,9 +28,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@AutoConfigureMockMvc
-//@WebMvcTest(StudentController.class)
-@SpringBootTest
+//@AutoConfigureMockMvc
+@WebMvcTest(StudentController.class)
+//@SpringBootTest
 public class ParameterizedStudentControllerValidTest {
 
     @Autowired

@@ -1,11 +1,13 @@
 package com.student.studentapp;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.student.controllers.StudentController;
 import com.student.dto.StudentDto;
 import com.student.service.impl.StudentServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -20,9 +22,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@AutoConfigureMockMvc
-//@WebMvcTest(StudentController.class)
-@SpringBootTest
+//@AutoConfigureMockMvc
+@WebMvcTest(StudentController.class)
+//@SpringBootTest
 public class StudentControllerValidTest {
 
     @Autowired
