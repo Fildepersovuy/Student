@@ -6,22 +6,33 @@
                       https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet id="2" author="aleksey">
-        <sqlFile dbms="postgresql"
-                 encoding="utf8"
-                 endDelimiter="\nGO"
-                 relativeToChangelogFile="true"
-                 splitStatements="true"
-                 stripComments="true"
-                 path="01-create-students-table.sql"/>
-        <rollback>
-            <sqlFile dbms="postgresql"
-                     encoding="utf8"
-                     endDelimiter="\nGO"
-                     relativeToChangelogFile="true"
-                     splitStatements="true"
-                     stripComments="true"
-                     path="01-drop-students-table.sql"/>
-        </rollback>
+        <createTable tableName="students">
+            <column autoIncrement="true" name="id" type="integer">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="fio" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country_of_birth" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_of_birth" type="timestamp"/>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="gender" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+<!--        <rollback>-->
+<!--            <dropTable tableName="students" cascadeConstraints="true"</dropTable>-->
+<!--        </rollback>-->
     </changeSet>
 
 </databaseChangeLog>
