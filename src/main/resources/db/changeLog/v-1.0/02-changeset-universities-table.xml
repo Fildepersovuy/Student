@@ -19,9 +19,10 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <!--        <rollback>-->
-        <!--            <dropTable tableName="students" cascadeConstraints="true"</dropTable>-->
-        <!--        </rollback>-->
+        <dropTable cascadeConstraints="true"
+                   catalogName="cat"
+                   schemaName="public"
+                   tableName="universities"/>
     </changeSet>
 
 </databaseChangeLog>
