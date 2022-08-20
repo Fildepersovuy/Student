@@ -30,10 +30,9 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <dropTable cascadeConstraints="true"
-                   catalogName="cat"
-                   schemaName="public"
-                   tableName="students"/>
+        <rollback>
+            <dropTable tableName="students"/>
+        </rollback>
     </changeSet>
 
 </databaseChangeLog>
