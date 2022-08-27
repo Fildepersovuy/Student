@@ -5,8 +5,8 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <include file="01-changeset-students-table.xml" relativeToChangelogFile="true"/>
-    <include file="02-changeset-universities-table.xml" relativeToChangelogFile="true"/>
-    <include file="03-changeset-update-stdentFIO.xml" relativeToChangelogFile="true"/>
+    <changeSet id="5" author="aleksey">
+        <dropNotNullConstraint tableName="students" columnName="fio"/>
+    </changeSet>
 
 </databaseChangeLog>
