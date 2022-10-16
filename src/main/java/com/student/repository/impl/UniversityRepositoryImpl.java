@@ -23,9 +23,8 @@ public class UniversityRepositoryImpl implements UniversityRepository {
 
     public void addUniversityEntity(List<UniversityDto> universityDtoList) {
         String allQuery = "";
-        UniversityMapper universityMapper = new UniversityMapper();
         for (UniversityDto x : universityDtoList) {
-            UniversityEntity universityEntity = universityMapper.mapToEntity(x);
+            UniversityEntity universityEntity = UniversityMapper.mapToEntity(x);
             String query = String.format("INSERT INTO universities (abbreviation, full_title, founding_date, creation_date ) VALUES('%s', '%s', '%s', '%s');\n", universityEntity.getAbbreviation(), universityEntity.getFullTitle(), universityEntity.getFoundingDate(), universityEntity.getCreationDate());
             allQuery += query;
         }

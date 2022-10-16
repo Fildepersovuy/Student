@@ -5,7 +5,6 @@ import com.student.service.FileWriterService;
 import com.student.service.StudentService;
 import com.student.mapper.StudentMapper;
 import com.student.dto.StudentDto;
-import com.student.repository.impl.StudentRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

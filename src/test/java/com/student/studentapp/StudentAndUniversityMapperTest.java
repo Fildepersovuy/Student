@@ -19,7 +19,7 @@ public class StudentAndUniversityMapperTest {
 
     @Test
     void studentMapToDtoTest() throws ParseException {
-        StudentEntity studentEntity = new StudentEntity();                                    // дано:
+        StudentEntity studentEntity = new StudentEntity();
         Date date = new SimpleDateFormat("yyyy-MM-dd").parse("1995-05-05");
         studentEntity.setFirstName("Sanya");
         studentEntity.setLastName("Esip");
@@ -28,9 +28,9 @@ public class StudentAndUniversityMapperTest {
         studentEntity.setDateOfBirth(date);
         studentEntity.setCountryOfBirth("Russia");
 
-        StudentDto studentDto = StudentMapper.mapToDto(studentEntity);                      // вызываем код который хотим проверить
+        StudentDto studentDto = StudentMapper.mapToDto(studentEntity);
 
-        assertEquals("Sanya", studentDto.getFirstName());                          // то что получили проверяем
+        assertEquals("Sanya", studentDto.getFirstName());
         assertEquals("Esip", studentDto.getLastName());
         assertEquals("se@gmail.ru", studentDto.getEmail());
         assertEquals("male", studentDto.getGender());
@@ -88,5 +88,4 @@ public class StudentAndUniversityMapperTest {
         assertEquals("Voronezh State University", universityEntity.getFullTitle());
         assertEquals("Fri May 05 00:00:00 MSD 1995", universityEntity.getFoundingDate().toString());
     }
-
 }

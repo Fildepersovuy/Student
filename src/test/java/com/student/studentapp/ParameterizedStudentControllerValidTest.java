@@ -1,18 +1,14 @@
 package com.student.studentapp;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.student.controllers.StudentController;
 import com.student.dto.StudentDto;
 import com.student.service.impl.StudentServiceImpl;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -28,9 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-//@AutoConfigureMockMvc
 @WebMvcTest(StudentController.class)
-//@SpringBootTest
 public class ParameterizedStudentControllerValidTest {
 
     @Autowired
@@ -57,7 +51,7 @@ public class ParameterizedStudentControllerValidTest {
     }
 
     private static Stream<Arguments> getParams() throws ParseException {
-       return Stream.of(invalidFirstName(),invalidLastName(),invalidEmail());
+        return Stream.of(invalidFirstName(), invalidLastName(), invalidEmail());
     }
 
     private static Arguments invalidFirstName() throws ParseException {
@@ -77,7 +71,7 @@ public class ParameterizedStudentControllerValidTest {
         List<StudentDto> list = new ArrayList<>();
         list.add(studentDto);
 
-        return Arguments.of(list,response);
+        return Arguments.of(list, response);
     }
 
     private static Arguments invalidLastName() throws ParseException {
@@ -97,7 +91,7 @@ public class ParameterizedStudentControllerValidTest {
         List<StudentDto> list = new ArrayList<>();
         list.add(studentDto);
 
-        return Arguments.of(list,response);
+        return Arguments.of(list, response);
     }
 
     private static Arguments invalidEmail() throws ParseException {
@@ -117,8 +111,6 @@ public class ParameterizedStudentControllerValidTest {
         List<StudentDto> list = new ArrayList<>();
         list.add(studentDto);
 
-        return Arguments.of(list,response);
+        return Arguments.of(list, response);
     }
-
-
 }

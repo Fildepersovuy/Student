@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import javax.validation.ConstraintViolationException;
 import java.io.IOException;
 import java.util.NoSuchElementException;
+
 @Slf4j
 @ControllerAdvice
 public class DefaultAdvice {

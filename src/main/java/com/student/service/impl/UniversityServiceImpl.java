@@ -15,16 +15,6 @@ public class UniversityServiceImpl implements UniversityService {
     @Autowired
     private UniversityRepositoryImpl universityRepository;
 
-    //    public List<UniversityDto> findByAbbreviation(String abbrev) {
-//        UniversityMapper universityMapper = new UniversityMapper();
-//        List<UniversityEntity> list = universityRepository.findByAbbreviation(abbrev);
-//        List<UniversityDto> list1 = new ArrayList<>();
-//        for (UniversityEntity x : list) {
-//            UniversityDto universityDto = universityMapper.mapToDto(x);
-//            list1.add(universityDto);
-//        }
-//        return list1;
-//    }
     public List<UniversityDto> findByAbbreviation(String abbrev) {
         return universityRepository.findByAbbreviation(abbrev)
                 .stream()
@@ -35,5 +25,4 @@ public class UniversityServiceImpl implements UniversityService {
     public void addUniversityEntity(List<UniversityDto> universityDtoList) {
         universityRepository.addUniversityEntity(universityDtoList);
     }
-
 }

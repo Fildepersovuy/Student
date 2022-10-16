@@ -19,7 +19,7 @@ public class PersonMapper implements RowMapper<StudentEntity> {
         studentEntity.setGender(resultSet.getString("gender"));
         studentEntity.setDateOfBirth(resultSet.getDate("date_of_birth"));
         studentEntity.setCountryOfBirth(resultSet.getString("country_of_birth"));
-        studentEntity.setFIO(resultSet.getString("first_name") + " " + resultSet.getString("last_name"));
+        studentEntity.setFio(resultSet.getString("first_name") + " " + resultSet.getString("last_name"));
         return studentEntity;
     }
 }

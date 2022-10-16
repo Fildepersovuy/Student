@@ -4,6 +4,10 @@ import com.student.domain.StudentEntity;
 import com.student.dto.StudentDto;
 
 public class StudentMapper {
+
+    private StudentMapper() {
+    }
+
     public static StudentDto mapToDto(StudentEntity studentEntity) {
         StudentDto studentDto = new StudentDto();
         studentDto.setFirstName(studentEntity.getFirstName());

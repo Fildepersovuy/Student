@@ -42,7 +42,7 @@ public class StudentControllerUpdateStudentEntityTest {
                 .getContentAsString();
 
         Assertions.assertEquals("", contentAsString);
-        verify(service).updateStudentEntity(getStudentDto(),1);
+        verify(service).updateStudentEntity(getStudentDto(), 1);
     }
 
     @SneakyThrows

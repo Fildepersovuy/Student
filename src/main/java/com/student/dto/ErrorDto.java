@@ -6,6 +6,6 @@ import org.springframework.http.HttpStatus;
 @Data
 public class ErrorDto {
 
-    String message;
-    HttpStatus code;
+    private String message;
+    private HttpStatus code;
 }

@@ -7,6 +7,8 @@ import java.util.Date;
 
 public class UniversityMapper {
 
+    private UniversityMapper() {
+    }
 
     public static UniversityDto mapToDto(UniversityEntity univ) {
         UniversityDto universityDto = new UniversityDto();
@@ -21,8 +23,7 @@ public class UniversityMapper {
         universityEntity.setAbbreviation(univ.getAbbreviation());
         universityEntity.setFullTitle(univ.getFullTitle());
         universityEntity.setFoundingDate(univ.getFoundingDate());
-        universityEntity.setCreationDate(new Date());                     // записываев дату в бд
+        universityEntity.setCreationDate(new Date());
         return universityEntity;
     }
-
 }

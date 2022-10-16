@@ -6,9 +6,7 @@ import com.student.dto.StudentDto;
 import com.student.service.impl.StudentServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -22,9 +20,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-//@AutoConfigureMockMvc
+
 @WebMvcTest(StudentController.class)
-//@SpringBootTest
 public class StudentControllerValidTest {
 
     @Autowired
@@ -56,7 +53,7 @@ public class StudentControllerValidTest {
                 .getResponse()
                 .getContentAsString();
         String response = "{\"message\":\"newStudentEntity.studentDtoList[0].firstName: must not be empty, newStudentEntity.studentDtoList[0].firstName: firstName should be between 1 and 50 characters\",\"code\":\"BAD_REQUEST\"}";
-        assertEquals(response,contentAsString);
+        assertEquals(response, contentAsString);
     }
 
     @Test
@@ -82,7 +79,7 @@ public class StudentControllerValidTest {
                 .getResponse()
                 .getContentAsString();
         String response = "{\"message\":\"newStudentEntity.studentDtoList[0].lastName: must not be blank, newStudentEntity.studentDtoList[0].lastName: lastName should be between 1 and 50 characters\",\"code\":\"BAD_REQUEST\"}";
-        assertEquals(response,contentAsString);
+        assertEquals(response, contentAsString);
     }
 
     @Test
@@ -108,6 +105,6 @@ public class StudentControllerValidTest {
                 .getResponse()
                 .getContentAsString();
         String response = "{\"message\":\"newStudentEntity.studentDtoList[0].email: Email should be valid\",\"code\":\"BAD_REQUEST\"}";
-        assertEquals(response,contentAsString);
+        assertEquals(response, contentAsString);
     }
 }

@@ -11,10 +11,6 @@ public interface StudentRepository {
 
     List<StudentEntity> findByName(String name);
 
-    void updateName(int id, String newFirstname);
-
-    List<StudentEntity> newFindByName(String firstName);
-
     void addStudentEntity(List<StudentDto> studentDtoList);
 
     void updateStudentEntity(StudentDto studentDto, int id);

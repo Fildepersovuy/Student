@@ -12,6 +12,7 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
+
 @Validated
 @RestController
 @RequestMapping("/student")
@@ -19,37 +20,29 @@ public class StudentController {
     @Autowired
     private StudentServiceImpl studentService;
     private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
+
     @GetMapping
     public List<StudentDto> findByName(@RequestParam("name") String name,
                                        @RequestParam(value = "saveInFile", required = false) boolean saveInFile,
                                        @RequestParam(value = "saveInFileReadable", required = false) boolean saveInFileReadable) throws IOException {
         logger.info("trying to get the entity student = " + name);
-        return studentService.findByName(name,saveInFile, saveInFileReadable);
+        return studentService.findByName(name, saveInFile, saveInFileReadable);
     }
 
-//    @PostMapping
-//    public void newStudentEntity(@RequestBody List<StudentDto> studentDtoList) {
-//        //todo: переписать через stream
-//        StringBuilder stringBuilder = new StringBuilder();
-//        for (StudentDto x : studentDtoList) {
-//            stringBuilder.append(x.getFirst_name()).append(" ").append(x.getLast_name());
-//        }
-//        logger.info("attempt to add entity student = " + stringBuilder);
-//        studentService.addStudentEntity(studentDtoList);
-//    }
     @PostMapping
     public void newStudentEntity(@RequestBody List<@Valid StudentDto> studentDtoList) {
-        String studDto =  studentDtoList
+        String studDto = studentDtoList
                 .stream()
                 .map(studentDto ->
                         new StringBuilder(studentDto.getFirstName())
-                        .append(" ")
-                        .append(studentDto.getLastName())
+                                .append(" ")
+                                .append(studentDto.getLastName())
                 )
                 .collect(Collectors.joining(","));
         logger.info("attempt to add entity student = " + studDto);
         studentService.addStudentEntity(studentDtoList);
     }
+
     @PutMapping
     public void updateStudentEntity(@RequestBody @Valid StudentDto studentDto, @RequestParam("id") int id) {
         logger.info("attempt to update student data = " + studentDto.getLastName());
