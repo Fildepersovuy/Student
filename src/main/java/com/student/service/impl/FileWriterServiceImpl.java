@@ -2,21 +2,18 @@ package com.student.service.impl;
 
 import com.student.dto.StudentDto;
 import com.student.service.FileWriterService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.util.List;
-
+@Slf4j
 @Service
 public class FileWriterServiceImpl implements FileWriterService {
 
-    private static final Logger logger = LoggerFactory.getLogger(FileWriterServiceImpl.class);
-
     @Override
     public void write(List<StudentDto> list) throws IOException {
-        logger.info("начинаю запись в файл");
+        log.info("начинаю запись в файл");
         ObjectOutputStream oos = null;
         try {
             oos = new ObjectOutputStream(new FileOutputStream("writingStudent"));
@@ -29,7 +26,7 @@ public class FileWriterServiceImpl implements FileWriterService {
     }
 
     public void readableRecord(List<StudentDto> list) {
-        logger.info("начинаю запись в файл в читабемом виде ");
+        log.info("начинаю запись в файл в читабемом виде ");
         File myFile = new File("writingStudent");
         PrintWriter writer = null;
         try {

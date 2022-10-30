@@ -5,7 +5,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+@Deprecated
 public class PersonMapper implements RowMapper<StudentEntity> {
 
     @Override
